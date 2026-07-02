@@ -1,0 +1,10 @@
+{
+  "name": "superstreams-data",
+  "version": "1.0.0",
+  "description": "Scrapes ESPN API to build a global sports schedule JSON.",
+  "main": "scraper.js",
+  "scripts": {
+    "start": "node scraper.js"
+  },
+  "dependencies": {}
+}
