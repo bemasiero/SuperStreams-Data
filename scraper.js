@@ -66,6 +66,9 @@ async function run() {
                 let homeLogo = homeCompetitor?.team?.logo || leagueLogo;
                 let awayLogo = awayCompetitor?.team?.logo || '';
                 
+                let homeColor = homeCompetitor?.team?.color || '';
+                let awayColor = awayCompetitor?.team?.color || '';
+                
                 // For competition sports (racing, mma, golf)
                 if (!homeTeam && !awayTeam) {
                     homeTeam = ev.shortName || ''; 
@@ -80,6 +83,8 @@ async function run() {
                     awayTeam: awayTeam,
                     homeLogo: homeLogo,
                     awayLogo: awayLogo,
+                    homeColor: homeColor,
+                    awayColor: awayColor,
                     startTime: ev.date,
                     status: ev.status.type.description
                 });
