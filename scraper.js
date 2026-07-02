@@ -70,6 +70,22 @@ const LEAGUES = [
         "league": "f1"
     },
     {
+        "sport": "racing",
+        "league": "irl"
+    },
+    {
+        "sport": "racing",
+        "league": "nascar-premier"
+    },
+    {
+        "sport": "racing",
+        "league": "nascar-secondary"
+    },
+    {
+        "sport": "racing",
+        "league": "nascar-truck"
+    },
+    {
         "sport": "mma",
         "league": "ufc"
     },
