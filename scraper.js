@@ -1202,10 +1202,13 @@ async function run() {
                     homeTeam = ev.shortName || ''; 
                 }
 
+                const leagueName = data.leagues?.[0]?.name || league;
+
                 allEvents.push({
                     id: ev.id,
-                    sport: sport.toUpperCase(),
-                    league: league.toUpperCase(),
+                    sport: sport.charAt(0).toUpperCase() + sport.slice(1),
+                    league: league.toLowerCase(),
+                    leagueName: leagueName,
                     title: title,
                     homeTeam: homeTeam,
                     awayTeam: awayTeam,
