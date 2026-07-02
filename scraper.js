@@ -1068,6 +1068,98 @@ const LEAGUES = [
     {
         "sport": "soccer",
         "league": "usa.ncaa.w.1"
+    },
+    {
+        "sport": "rugby",
+        "league": "164205"
+    },
+    {
+        "sport": "rugby",
+        "league": "180659"
+    },
+    {
+        "sport": "rugby",
+        "league": "244293"
+    },
+    {
+        "sport": "rugby",
+        "league": "242041"
+    },
+    {
+        "sport": "rugby",
+        "league": "289262"
+    },
+    {
+        "sport": "rugby",
+        "league": "289234"
+    },
+    {
+        "sport": "rugby",
+        "league": "267979"
+    },
+    {
+        "sport": "rugby",
+        "league": "270559"
+    },
+    {
+        "sport": "rugby",
+        "league": "270557"
+    },
+    {
+        "sport": "rugby",
+        "league": "271937"
+    },
+    {
+        "sport": "rugby",
+        "league": "282"
+    },
+    {
+        "sport": "rugby",
+        "league": "283"
+    },
+    {
+        "sport": "rugby-league",
+        "league": "3"
+    },
+    {
+        "sport": "australian-football",
+        "league": "afl"
+    },
+    {
+        "sport": "volleyball",
+        "league": "mens-college-volleyball"
+    },
+    {
+        "sport": "volleyball",
+        "league": "womens-college-volleyball"
+    },
+    {
+        "sport": "lacrosse",
+        "league": "pll"
+    },
+    {
+        "sport": "lacrosse",
+        "league": "nll"
+    },
+    {
+        "sport": "lacrosse",
+        "league": "mens-college-lacrosse"
+    },
+    {
+        "sport": "lacrosse",
+        "league": "womens-college-lacrosse"
+    },
+    {
+        "sport": "water-polo",
+        "league": "mens-college-water-polo"
+    },
+    {
+        "sport": "water-polo",
+        "league": "womens-college-water-polo"
+    },
+    {
+        "sport": "field-hockey",
+        "league": "womens-college-field-hockey"
     }
 ];
 
