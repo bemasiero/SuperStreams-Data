@@ -38,6 +38,26 @@ const LEAGUES = [
         "league": "wnba"
     },
     {
+        "sport": "basketball",
+        "league": "womens-college-basketball"
+    },
+    {
+        "sport": "basketball",
+        "league": "fiba"
+    },
+    {
+        "sport": "basketball",
+        "league": "nba-development"
+    },
+    {
+        "sport": "basketball",
+        "league": "mens-olympics-basketball"
+    },
+    {
+        "sport": "basketball",
+        "league": "womens-olympics-basketball"
+    },
+    {
         "sport": "baseball",
         "league": "mlb"
     },
