@@ -78,6 +78,34 @@ const LEAGUES = [
         "league": "atp"
     },
     {
+        "sport": "golf",
+        "league": "pga"
+    },
+    {
+        "sport": "golf",
+        "league": "liv"
+    },
+    {
+        "sport": "golf",
+        "league": "eur"
+    },
+    {
+        "sport": "golf",
+        "league": "lpga"
+    },
+    {
+        "sport": "golf",
+        "league": "champions-tour"
+    },
+    {
+        "sport": "golf",
+        "league": "mens-olympics-golf"
+    },
+    {
+        "sport": "golf",
+        "league": "womens-olympics-golf"
+    },
+    {
         "sport": "soccer",
         "league": "fifa.world"
     },
