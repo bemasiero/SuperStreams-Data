@@ -62,6 +62,26 @@ const LEAGUES = [
         "league": "mlb"
     },
     {
+        "sport": "baseball",
+        "league": "world-baseball-classic"
+    },
+    {
+        "sport": "baseball",
+        "league": "caribbean-series"
+    },
+    {
+        "sport": "baseball",
+        "league": "olympics-baseball"
+    },
+    {
+        "sport": "baseball",
+        "league": "college-baseball"
+    },
+    {
+        "sport": "baseball",
+        "league": "college-softball"
+    },
+    {
         "sport": "hockey",
         "league": "nhl"
     },
