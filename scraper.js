@@ -162,6 +162,10 @@ const LEAGUES = [
         "league": "atp"
     },
     {
+        "sport": "tennis",
+        "league": "wta"
+    },
+    {
         "sport": "golf",
         "league": "pga"
     },
