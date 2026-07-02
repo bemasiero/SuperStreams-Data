@@ -74,6 +74,34 @@ const LEAGUES = [
         "league": "ufc"
     },
     {
+        "sport": "mma",
+        "league": "bellator"
+    },
+    {
+        "sport": "mma",
+        "league": "pfl"
+    },
+    {
+        "sport": "mma",
+        "league": "ofc"
+    },
+    {
+        "sport": "mma",
+        "league": "ifc"
+    },
+    {
+        "sport": "mma",
+        "league": "cage-warriors"
+    },
+    {
+        "sport": "mma",
+        "league": "ksw"
+    },
+    {
+        "sport": "mma",
+        "league": "rizin"
+    },
+    {
         "sport": "tennis",
         "league": "atp"
     },
