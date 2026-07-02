@@ -49,6 +49,8 @@ async function run() {
             const events = data.events || [];
             console.log(`📅 Found ${events.length} events.`);
             
+            const leagueLogo = data.leagues?.[0]?.logos?.[0]?.href || '';
+            
             for (const ev of events) {
                 // Parse Event
                 const competition = ev.competitions?.[0];
@@ -60,6 +62,9 @@ async function run() {
                 let title = ev.name;
                 let homeTeam = homeCompetitor?.team?.displayName || '';
                 let awayTeam = awayCompetitor?.team?.displayName || '';
+                
+                let homeLogo = homeCompetitor?.team?.logo || leagueLogo;
+                let awayLogo = awayCompetitor?.team?.logo || '';
                 
                 // For competition sports (racing, mma, golf)
                 if (!homeTeam && !awayTeam) {
@@ -73,6 +78,8 @@ async function run() {
                     title: title,
                     homeTeam: homeTeam,
                     awayTeam: awayTeam,
+                    homeLogo: homeLogo,
+                    awayLogo: awayLogo,
                     startTime: ev.date,
                     status: ev.status.type.description
                 });
