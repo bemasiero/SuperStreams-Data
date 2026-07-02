@@ -86,6 +86,26 @@ const LEAGUES = [
         "league": "nhl"
     },
     {
+        "sport": "hockey",
+        "league": "hockey-world-cup"
+    },
+    {
+        "sport": "hockey",
+        "league": "mens-college-hockey"
+    },
+    {
+        "sport": "hockey",
+        "league": "womens-college-hockey"
+    },
+    {
+        "sport": "hockey",
+        "league": "olympics-mens-ice-hockey"
+    },
+    {
+        "sport": "hockey",
+        "league": "olympics-womens-ice-hockey"
+    },
+    {
         "sport": "racing",
         "league": "f1"
     },
