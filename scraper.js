@@ -1165,7 +1165,7 @@ const LEAGUES = [
 
 async function run() {
     console.log("🚀 Starting Global Schedule Scraper...");
-    let allEvents = [];
+    let allEventsMap = {};
 
     for (const {sport, league} of LEAGUES) {
         const url = `https://site.api.espn.com/apis/site/v2/sports/${sport}/${league}/scoreboard`;
@@ -1178,47 +1178,100 @@ async function run() {
             console.log(`📅 Found ${events.length} events.`);
             
             const leagueLogo = data.leagues?.[0]?.logos?.[0]?.href || '';
-            
-            for (const ev of events) {
-                // Parse Event
-                const competition = ev.competitions?.[0];
-                if (!competition) continue;
+            const leagueName = data.leagues?.[0]?.name || league;
 
-                const homeCompetitor = competition.competitors?.find(c => c.homeAway === 'home');
-                const awayCompetitor = competition.competitors?.find(c => c.homeAway === 'away');
-                
-                let title = ev.name;
-                let homeTeam = homeCompetitor?.team?.displayName || '';
-                let awayTeam = awayCompetitor?.team?.displayName || '';
-                
-                let homeLogo = homeCompetitor?.team?.logo || leagueLogo;
-                let awayLogo = awayCompetitor?.team?.logo || '';
-                
-                let homeColor = homeCompetitor?.team?.color || '';
-                let awayColor = awayCompetitor?.team?.color || '';
-                
-                // For competition sports (racing, mma, golf)
-                if (!homeTeam && !awayTeam) {
-                    homeTeam = ev.shortName || ''; 
+            if (sport.toLowerCase() === 'tennis') {
+                // Specialized Tennis Parser
+                for (const ev of events) {
+                    for (const gr of ev.groupings || []) {
+                        for (const comp of gr.competitions || []) {
+                            const homeCompetitor = comp.competitors?.find(c => c.homeAway === 'home');
+                            const awayCompetitor = comp.competitors?.find(c => c.homeAway === 'away');
+
+                            const getPlayerName = (c) => {
+                                if (!c) return '';
+                                if (c.athlete) return c.athlete.displayName || '';
+                                if (c.roster) return c.roster.displayName || '';
+                                return '';
+                            };
+
+                            const getPlayerLogo = (c) => {
+                                if (!c) return leagueLogo;
+                                if (c.athlete) return c.athlete.flag?.href || leagueLogo;
+                                if (c.roster && c.roster.athletes?.[0]) return c.roster.athletes[0].flag?.href || leagueLogo;
+                                return leagueLogo;
+                            };
+
+                            let homeTeam = getPlayerName(homeCompetitor);
+                            let awayTeam = getPlayerName(awayCompetitor);
+
+                            // Skip if both are TBD or empty
+                            if ((!homeTeam || homeTeam === 'TBD') && (!awayTeam || awayTeam === 'TBD')) {
+                                continue;
+                            }
+
+                            let homeLogo = getPlayerLogo(homeCompetitor);
+                            let awayLogo = getPlayerLogo(awayCompetitor);
+
+                            let title = comp.notes?.[0]?.text || comp.name || `${homeTeam} vs ${awayTeam}`;
+
+                            allEventsMap[comp.id] = {
+                                id: comp.id,
+                                sport: 'Tennis',
+                                league: league.toLowerCase(),
+                                leagueName: leagueName,
+                                title: title,
+                                homeTeam: homeTeam,
+                                awayTeam: awayTeam,
+                                homeLogo: homeLogo,
+                                awayLogo: awayLogo,
+                                homeColor: '',
+                                awayColor: '',
+                                startTime: comp.date,
+                                status: comp.status?.type?.description || 'Scheduled'
+                            };
+                        }
+                    }
                 }
+            } else {
+                // Normal Sports Parser
+                for (const ev of events) {
+                    const competition = ev.competitions?.[0];
+                    if (!competition) continue;
 
-                const leagueName = data.leagues?.[0]?.name || league;
+                    const homeCompetitor = competition.competitors?.find(c => c.homeAway === 'home');
+                    const awayCompetitor = competition.competitors?.find(c => c.homeAway === 'away');
+                    
+                    let title = ev.name;
+                    let homeTeam = homeCompetitor?.team?.displayName || '';
+                    let awayTeam = awayCompetitor?.team?.displayName || '';
+                    
+                    let homeLogo = homeCompetitor?.team?.logo || leagueLogo;
+                    let awayLogo = awayCompetitor?.team?.logo || '';
+                    
+                    let homeColor = homeCompetitor?.team?.color || '';
+                    let awayColor = awayCompetitor?.team?.color || '';
+                    
+                    if (!homeTeam && !awayTeam) {
+                        homeTeam = ev.shortName || ''; 
+                    }
 
-                allEvents.push({
-                    id: ev.id,
-                    sport: sport.charAt(0).toUpperCase() + sport.slice(1),
-                    league: league.toLowerCase(),
-                    leagueName: leagueName,
-                    title: title,
-                    homeTeam: homeTeam,
-                    awayTeam: awayTeam,
-                    homeLogo: homeLogo,
-                    awayLogo: awayLogo,
-                    homeColor: homeColor,
-                    awayColor: awayColor,
-                    startTime: ev.date,
-                    status: ev.status.type.description
-                });
+                    allEventsMap[ev.id] = {
+                        id: ev.id,
+                        sport: sport.charAt(0).toUpperCase() + sport.slice(1),
+                        league: league.toLowerCase(),
+                        leagueName: leagueName,
+                        title: title,
+                        homeTeam: homeTeam,
+                        awayTeam: awayTeam,
+                        homeLogo: homeLogo,
+                        awayLogo: awayLogo,
+                        homeColor: homeColor,
+                        awayColor: awayColor,
+                        startTime: ev.date,
+                        status: ev.status.type.description
+                    };
+                }
             }
 
             // Sleep to respect rate limits
@@ -1229,6 +1282,7 @@ async function run() {
         }
     }
     
+    const allEvents = Object.values(allEventsMap);
     fs.writeFileSync('schedule.json', JSON.stringify(allEvents, null, 2));
     console.log(`\n✅ Saved ${allEvents.length} total events to schedule.json!`);
 }
