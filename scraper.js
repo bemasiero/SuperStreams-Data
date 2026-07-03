@@ -1296,6 +1296,51 @@ async function run() {
                         };
                     }
                 }
+            } else if (sport.toLowerCase() === 'golf') {
+                // Specialized Golf Parser (Single Event, extract Round info)
+                for (const ev of events) {
+                    const comp = ev.competitions?.[0];
+                    if (!comp) continue;
+
+                    let title = ev.name;
+                    let statusStr = comp.status?.type?.description || 'Scheduled';
+
+                    // Golf statuses often look like "Round 2 - In Progress"
+                    // We want to extract "Round 2" into the Title and leave "In Progress" as the status
+                    if (comp.status?.type?.shortDetail) {
+                        let parts = comp.status.type.shortDetail.split(' - ');
+                        
+                        // Convert "Round X" to "X Round" for better stream matching and UX
+                        let roundStr = parts[0];
+                        roundStr = roundStr.replace('Round 1', 'First Round');
+                        roundStr = roundStr.replace('Round 2', 'Second Round');
+                        roundStr = roundStr.replace('Round 3', 'Third Round');
+                        roundStr = roundStr.replace('Round 4', 'Final Round');
+
+                        if (parts.length > 1) {
+                            title = `${ev.name} · ${roundStr}`;
+                            statusStr = parts.slice(1).join(' - ');
+                        } else if (comp.status.type.shortDetail.includes('Round')) {
+                            title = `${ev.name} · ${roundStr}`;
+                        }
+                    }
+
+                    allEventsMap[comp.id] = {
+                        id: comp.id,
+                        sport: 'Golf',
+                        league: league.toLowerCase(),
+                        leagueName: leagueName,
+                        title: title,
+                        homeTeam: ev.shortName || ev.name,
+                        awayTeam: '',
+                        homeLogo: leagueLogo,
+                        awayLogo: '',
+                        homeColor: '',
+                        awayColor: '',
+                        startTime: comp.date,
+                        status: statusStr
+                    };
+                }
             } else {
                 // Normal Sports Parser
                 for (const ev of events) {
