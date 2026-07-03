@@ -1213,7 +1213,7 @@ async function run() {
                             let homeLogo = getPlayerLogo(homeCompetitor);
                             let awayLogo = getPlayerLogo(awayCompetitor);
 
-                            let title = comp.notes?.[0]?.text || comp.name || `${homeTeam} vs ${awayTeam}`;
+                            let title = `${homeTeam} vs ${awayTeam}`;
 
                             const getAthletes = (c) => {
                                 let athletes = [];
