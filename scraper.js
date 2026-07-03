@@ -1241,7 +1241,7 @@ async function run() {
                                 id: comp.id,
                                 sport: 'Tennis',
                                 league: ev.name || league.toLowerCase(),
-                                leagueName: comp.type?.text || 'Singles',
+                                leagueName: comp.type?.text ? `${ev.name || league} · ${comp.type.text}` : (ev.name || 'Singles'),
                                 title: title,
                                 homeTeam: homeTeam,
                                 awayTeam: awayTeam,
