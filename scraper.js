@@ -1215,11 +1215,33 @@ async function run() {
 
                             let title = comp.notes?.[0]?.text || comp.name || `${homeTeam} vs ${awayTeam}`;
 
+                            const getAthletes = (c) => {
+                                let athletes = [];
+                                if (!c) return athletes;
+                                if (c.athlete) {
+                                    athletes.push({
+                                        name: c.athlete.displayName || '',
+                                        headshot: c.athlete.headshot?.href || null
+                                    });
+                                } else if (c.roster && c.roster.athletes) {
+                                    for (const a of c.roster.athletes) {
+                                        athletes.push({
+                                            name: a.displayName || '',
+                                            headshot: a.headshot?.href || null
+                                        });
+                                    }
+                                }
+                                return athletes;
+                            };
+
+                            let homeAthletes = getAthletes(homeCompetitor);
+                            let awayAthletes = getAthletes(awayCompetitor);
+
                             allEventsMap[comp.id] = {
                                 id: comp.id,
                                 sport: 'Tennis',
-                                league: league.toLowerCase(),
-                                leagueName: comp.type?.text ? `${ev.name} (${comp.type.text})` : ev.name,
+                                league: ev.name || league.toLowerCase(),
+                                leagueName: comp.type?.text || 'Singles',
                                 title: title,
                                 homeTeam: homeTeam,
                                 awayTeam: awayTeam,
@@ -1228,7 +1250,9 @@ async function run() {
                                 homeColor: '',
                                 awayColor: '',
                                 startTime: comp.date,
-                                status: comp.status?.type?.description || 'Scheduled'
+                                status: comp.status?.type?.description || 'Scheduled',
+                                homeAthletes: homeAthletes,
+                                awayAthletes: awayAthletes
                             };
                         }
                     }
