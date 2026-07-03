@@ -1257,6 +1257,39 @@ async function run() {
                         }
                     }
                 }
+            } else if (sport.toLowerCase() === 'racing') {
+                // Specialized Racing Parser (Split by sessions like Qual, Race)
+                for (const ev of events) {
+                    for (const comp of ev.competitions || []) {
+                        const typeAbbrev = comp.type?.abbreviation || '';
+                        
+                        // Skip Practice sessions
+                        if (typeAbbrev.includes('FP') || typeAbbrev.includes('Practice')) {
+                            continue;
+                        }
+
+                        let title = ev.name;
+                        if (typeAbbrev && typeAbbrev !== 'Race') {
+                            title = `${ev.name} - ${typeAbbrev}`;
+                        }
+                        
+                        allEventsMap[comp.id] = {
+                            id: comp.id,
+                            sport: 'Racing',
+                            league: league.toLowerCase(),
+                            leagueName: leagueName,
+                            title: title,
+                            homeTeam: ev.shortName || ev.name,
+                            awayTeam: '',
+                            homeLogo: leagueLogo,
+                            awayLogo: '',
+                            homeColor: '',
+                            awayColor: '',
+                            startTime: comp.date,
+                            status: comp.status?.type?.description || 'Scheduled'
+                        };
+                    }
+                }
             } else {
                 // Normal Sports Parser
                 for (const ev of events) {
