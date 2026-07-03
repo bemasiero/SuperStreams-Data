@@ -1337,7 +1337,9 @@ async function run() {
                         awayLogo: '',
                         homeColor: '',
                         awayColor: '',
-                        startTime: comp.date,
+                        startTime: comp.startDate || comp.date,
+                        endTime: comp.endDate || null,
+                        statusRaw: comp.status?.type?.name || null,
                         status: statusStr
                     };
                 }
