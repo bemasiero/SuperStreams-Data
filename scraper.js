@@ -1219,7 +1219,7 @@ async function run() {
                                 id: comp.id,
                                 sport: 'Tennis',
                                 league: league.toLowerCase(),
-                                leagueName: leagueName,
+                                leagueName: comp.type?.text ? `${ev.name} (${comp.type.text})` : ev.name,
                                 title: title,
                                 homeTeam: homeTeam,
                                 awayTeam: awayTeam,
