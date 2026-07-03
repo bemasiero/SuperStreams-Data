@@ -1261,16 +1261,22 @@ async function run() {
                 // Specialized Racing Parser (Split by sessions like Qual, Race)
                 for (const ev of events) {
                     for (const comp of ev.competitions || []) {
-                        const typeAbbrev = comp.type?.abbreviation || '';
+                        let typeAbbrev = comp.type?.abbreviation || '';
                         
                         // Skip Practice sessions
                         if (typeAbbrev.includes('FP') || typeAbbrev.includes('Practice')) {
                             continue;
                         }
 
+                        // Map abbreviations to full names for better matching and UX
+                        let sessionName = typeAbbrev;
+                        if (typeAbbrev === 'SS') sessionName = 'Sprint Shootout';
+                        else if (typeAbbrev === 'SR') sessionName = 'Sprint Race';
+                        else if (typeAbbrev === 'Qual') sessionName = 'Qualifying';
+
                         let title = ev.name;
-                        if (typeAbbrev && typeAbbrev !== 'Race') {
-                            title = `${ev.name} - ${typeAbbrev}`;
+                        if (sessionName && typeAbbrev !== 'Race') {
+                            title = `${ev.name} - ${sessionName}`;
                         }
                         
                         allEventsMap[comp.id] = {
