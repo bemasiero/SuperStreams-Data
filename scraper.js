@@ -87,10 +87,6 @@ const LEAGUES = [
     },
     {
         "sport": "hockey",
-        "league": "hockey-world-cup"
-    },
-    {
-        "sport": "hockey",
         "league": "mens-college-hockey"
     },
     {
@@ -131,10 +127,6 @@ const LEAGUES = [
     },
     {
         "sport": "mma",
-        "league": "bellator"
-    },
-    {
-        "sport": "mma",
         "league": "pfl"
     },
     {
@@ -143,19 +135,7 @@ const LEAGUES = [
     },
     {
         "sport": "mma",
-        "league": "ifc"
-    },
-    {
-        "sport": "mma",
         "league": "cage-warriors"
-    },
-    {
-        "sport": "mma",
-        "league": "ksw"
-    },
-    {
-        "sport": "mma",
-        "league": "rizin"
     },
     {
         "sport": "tennis",
@@ -507,10 +487,6 @@ const LEAGUES = [
     },
     {
         "sport": "soccer",
-        "league": "concacaf.confederations_playoff"
-    },
-    {
-        "sport": "soccer",
         "league": "concacaf.w.champions_cup"
     },
     {
@@ -531,23 +507,7 @@ const LEAGUES = [
     },
     {
         "sport": "soccer",
-        "league": "uefa.euro_u21"
-    },
-    {
-        "sport": "soccer",
         "league": "global.finalissima"
-    },
-    {
-        "sport": "soccer",
-        "league": "global.u20.intercontinental_cup"
-    },
-    {
-        "sport": "soccer",
-        "league": "global.w.finalissima"
-    },
-    {
-        "sport": "soccer",
-        "league": "fifa.world.u20"
     },
     {
         "sport": "soccer",
@@ -567,10 +527,6 @@ const LEAGUES = [
     },
     {
         "sport": "soccer",
-        "league": "afc.cupq"
-    },
-    {
-        "sport": "soccer",
         "league": "aff.championship"
     },
     {
@@ -584,10 +540,6 @@ const LEAGUES = [
     {
         "sport": "soccer",
         "league": "caf.championship"
-    },
-    {
-        "sport": "soccer",
-        "league": "caf.championship_qual"
     },
     {
         "sport": "soccer",
@@ -611,22 +563,6 @@ const LEAGUES = [
     },
     {
         "sport": "soccer",
-        "league": "uefa.champions_qual"
-    },
-    {
-        "sport": "soccer",
-        "league": "uefa.europa_qual"
-    },
-    {
-        "sport": "soccer",
-        "league": "uefa.europa.conf_qual"
-    },
-    {
-        "sport": "soccer",
-        "league": "uefa.wchampions_qual"
-    },
-    {
-        "sport": "soccer",
         "league": "uefa.w.europa"
     },
     {
@@ -636,10 +572,6 @@ const LEAGUES = [
     {
         "sport": "soccer",
         "league": "fifa.intercontinental_cup"
-    },
-    {
-        "sport": "soccer",
-        "league": "nonfifa"
     },
     {
         "sport": "soccer",
@@ -695,71 +627,11 @@ const LEAGUES = [
     },
     {
         "sport": "soccer",
-        "league": "global.club_challenge"
-    },
-    {
-        "sport": "soccer",
         "league": "ned.supercup"
     },
     {
         "sport": "soccer",
         "league": "club.friendly"
-    },
-    {
-        "sport": "soccer",
-        "league": "global.pinatar_cup"
-    },
-    {
-        "sport": "soccer",
-        "league": "friendly.emirates_cup"
-    },
-    {
-        "sport": "soccer",
-        "league": "esp.joan_gamper"
-    },
-    {
-        "sport": "soccer",
-        "league": "jpn.world_challenge"
-    },
-    {
-        "sport": "soccer",
-        "league": "global.arnold.clark_cup"
-    },
-    {
-        "sport": "soccer",
-        "league": "fifa.conmebol.olympicsq"
-    },
-    {
-        "sport": "soccer",
-        "league": "fifa.concacaf.olympicsq"
-    },
-    {
-        "sport": "soccer",
-        "league": "fifa.w.concacaf.olympicsq"
-    },
-    {
-        "sport": "soccer",
-        "league": "fifa.world.u17"
-    },
-    {
-        "sport": "soccer",
-        "league": "fifa.wworld.u17"
-    },
-    {
-        "sport": "soccer",
-        "league": "uefa.euro_u21_qual"
-    },
-    {
-        "sport": "soccer",
-        "league": "uefa.euro.u19"
-    },
-    {
-        "sport": "soccer",
-        "league": "global.toulon"
-    },
-    {
-        "sport": "soccer",
-        "league": "fifa.friendly_u21"
     },
     {
         "sport": "soccer",
@@ -855,10 +727,6 @@ const LEAGUES = [
     },
     {
         "sport": "soccer",
-        "league": "arg.copa_de_la_superliga"
-    },
-    {
-        "sport": "soccer",
         "league": "arg.trofeo_de_la_campeones"
     },
     {
@@ -919,19 +787,11 @@ const LEAGUES = [
     },
     {
         "sport": "soccer",
-        "league": "chi.1.promotion.relegation"
-    },
-    {
-        "sport": "soccer",
         "league": "chi.copa_chi"
     },
     {
         "sport": "soccer",
         "league": "uru.1"
-    },
-    {
-        "sport": "soccer",
-        "league": "uru.2"
     },
     {
         "sport": "soccer",
@@ -991,14 +851,6 @@ const LEAGUES = [
     },
     {
         "sport": "soccer",
-        "league": "concacaf.champions_cup"
-    },
-    {
-        "sport": "soccer",
-        "league": "concacaf.u23"
-    },
-    {
-        "sport": "soccer",
         "league": "hon.1"
     },
     {
@@ -1011,23 +863,7 @@ const LEAGUES = [
     },
     {
         "sport": "soccer",
-        "league": "afc.cup_qual"
-    },
-    {
-        "sport": "soccer",
         "league": "slv.1"
-    },
-    {
-        "sport": "soccer",
-        "league": "fifa.intercontinental.cup"
-    },
-    {
-        "sport": "soccer",
-        "league": "afc.saff.championship"
-    },
-    {
-        "sport": "soccer",
-        "league": "chn.1.promotion.relegation"
     },
     {
         "sport": "soccer",
@@ -1040,10 +876,6 @@ const LEAGUES = [
     {
         "sport": "soccer",
         "league": "global.gulf_cup"
-    },
-    {
-        "sport": "soccer",
-        "league": "bangabandhu.cup"
     },
     {
         "sport": "soccer",
@@ -1108,14 +940,6 @@ const LEAGUES = [
     {
         "sport": "rugby",
         "league": "271937"
-    },
-    {
-        "sport": "rugby",
-        "league": "282"
-    },
-    {
-        "sport": "rugby",
-        "league": "283"
     },
     {
         "sport": "rugby-league",
@@ -1414,9 +1238,18 @@ async function run() {
         }
     }
     
-    const allEvents = Object.values(allEventsMap);
+    // Freshness guard: ESPN's default scoreboard returns a dormant league's
+    // last-played event, which can be years old. Drop anything that ended more
+    // than 21 days ago so off-season leagues contribute nothing instead of
+    // zombie entries; they reappear automatically when live again.
+    const cutoff = Date.now() - 21 * 86400000;
+    const allEvents = Object.values(allEventsMap).filter(ev => {
+        const t = Date.parse(ev.endTime || ev.startTime);
+        return isNaN(t) || t >= cutoff;
+    });
+    const staleCount = Object.keys(allEventsMap).length - allEvents.length;
     fs.writeFileSync('schedule.json', JSON.stringify(allEvents, null, 2));
-    console.log(`\n✅ Saved ${allEvents.length} total events to schedule.json!`);
+    console.log(`\n✅ Saved ${allEvents.length} total events to schedule.json! (${staleCount} stale events dropped)`);
 }
 
 run();
