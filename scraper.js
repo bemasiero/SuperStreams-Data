@@ -1163,20 +1163,42 @@ const LEAGUES = [
     }
 ];
 
+// ESPN's default scoreboard returns whatever day its internal calendar considers
+// "current", which lags behind real time in the morning (US) — a run at that hour
+// captures only yesterday's finished slate for daily sports like MLB/WNBA. Always
+// fetch an explicit yesterday→+2days window too, and merge both responses so
+// next-event context (NFL week, next F1 race, UFC card) is preserved.
+function todayWindow() {
+    const fmt = (d) => d.toISOString().slice(0, 10).replace(/-/g, '');
+    const start = new Date(Date.now() - 1 * 86400000);
+    const end = new Date(Date.now() + 2 * 86400000);
+    return `${fmt(start)}-${fmt(end)}`;
+}
+
 async function run() {
     console.log("🚀 Starting Global Schedule Scraper...");
     let allEventsMap = {};
+    const dateRange = todayWindow();
 
     for (const {sport, league} of LEAGUES) {
-        const url = `https://site.api.espn.com/apis/site/v2/sports/${sport}/${league}/scoreboard`;
+        const baseUrl = `https://site.api.espn.com/apis/site/v2/sports/${sport}/${league}/scoreboard`;
         console.log(`\n📡 Probing: ${sport.toUpperCase()} - ${league.toUpperCase()}`);
-        
+
         try {
-            const data = await fetch(url);
-            
-            const events = data.events || [];
+            const data = await fetch(baseUrl);
+
+            // Duplicate events across the two responses are fine: allEventsMap
+            // keys by event/competition id, and tennis tournaments carry different
+            // match lists in each response, so both copies must be parsed.
+            let events = data.events || [];
+            try {
+                const datedData = await fetch(`${baseUrl}?dates=${dateRange}`);
+                events = events.concat(datedData.events || []);
+            } catch (error) {
+                console.error(`⚠️ Dated fetch failed for ${league}:`, error.message);
+            }
             console.log(`📅 Found ${events.length} events.`);
-            
+
             const leagueLogo = data.leagues?.[0]?.logos?.[0]?.href || '';
             const leagueName = data.leagues?.[0]?.name || league;
 
