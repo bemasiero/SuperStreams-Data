@@ -1,17 +1,13 @@
-const https = require('https');
 const fs = require('fs');
+const nativeFetch = globalThis.fetch;
 
+// ESPN (Akamai) started rejecting Node's `https` module and non-browser
+// User-Agents with 403s on 2026-08-05. Using the platform `fetch` with a
+// browser-like UA avoids the block.
 function fetch(url) {
-    return new Promise((resolve, reject) => {
-        https.get(url, { headers: { 'User-Agent': 'SuperStreams-Scraper/1.0' } }, (res) => {
-            if (res.statusCode >= 300) return reject(new Error(`Status ${res.statusCode}`));
-            let data = '';
-            res.on('data', chunk => data += chunk);
-            res.on('end', () => {
-                try { resolve(JSON.parse(data)); } 
-                catch(e) { reject(e); }
-            });
-        }).on('error', reject);
+    return nativeFetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } }).then(async (res) => {
+        if (!res.ok) throw new Error(`Status ${res.status}`);
+        return res.json();
     });
 }
 
