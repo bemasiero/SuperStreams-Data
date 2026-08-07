@@ -1194,19 +1194,24 @@ async function run() {
                     const homeCompetitor = competition.competitors?.find(c => c.homeAway === 'home');
                     const awayCompetitor = competition.competitors?.find(c => c.homeAway === 'away');
                     
-                    let title = ev.name;
                     let homeTeam = homeCompetitor?.team?.displayName || '';
                     let awayTeam = awayCompetitor?.team?.displayName || '';
-                    
+
                     let homeLogo = homeCompetitor?.team?.logo || leagueLogo;
                     let awayLogo = awayCompetitor?.team?.logo || '';
-                    
+
                     let homeColor = homeCompetitor?.team?.color || '';
                     let awayColor = awayCompetitor?.team?.color || '';
-                    
+
                     if (!homeTeam && !awayTeam) {
-                        homeTeam = ev.shortName || ''; 
+                        homeTeam = ev.shortName || '';
                     }
+
+                    // ESPN's ev.name reads "Away at Home" (US convention); flip
+                    // it to "Home vs Away" to match the app's home-left/away-right
+                    // artwork. Only when both sides are real teams — ev.name is
+                    // kept as-is for the single-competitor fallback above.
+                    let title = (homeTeam && awayTeam) ? `${homeTeam} vs ${awayTeam}` : ev.name;
 
                     allEventsMap[ev.id] = {
                         id: ev.id,
