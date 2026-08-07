@@ -1182,7 +1182,11 @@ async function run() {
                         startTime: comp.startDate || comp.date,
                         endTime: comp.endDate || null,
                         statusRaw: comp.status?.type?.name || null,
-                        status: statusStr
+                        status: statusStr,
+                        // ESPN's structured round number (0 pre-tournament, then
+                        // the round currently playing/just completed). More
+                        // reliable than parsing it out of shortDetail text.
+                        currentRound: typeof comp.status?.period === 'number' ? comp.status.period : null
                     };
                 }
             } else {
