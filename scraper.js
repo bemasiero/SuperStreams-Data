@@ -1186,7 +1186,12 @@ async function run() {
                         // ESPN's structured round number (0 pre-tournament, then
                         // the round currently playing/just completed). More
                         // reliable than parsing it out of shortDetail text.
-                        currentRound: typeof comp.status?.period === 'number' ? comp.status.period : null
+                        currentRound: typeof comp.status?.period === 'number' ? comp.status.period : null,
+                        // Whether that round has actually finished play, vs. just
+                        // paused (STATUS_SUSPENDED/delayed/etc. all have
+                        // completed: false — golf gets weather delays often, and
+                        // those shouldn't be treated the same as a finished round).
+                        roundComplete: comp.status?.type?.completed ?? null
                     };
                 }
             } else {
