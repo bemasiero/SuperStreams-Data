@@ -183,6 +183,10 @@ const LEAGUES = [
     },
     {
         "sport": "soccer",
+        "league": "uefa.champions_qual"
+    },
+    {
+        "sport": "soccer",
         "league": "eng.1"
     },
     {
@@ -1046,6 +1050,17 @@ async function run() {
 
                             let homeTeam = getPlayerName(homeCompetitor);
                             let awayTeam = getPlayerName(awayCompetitor);
+
+                            // ESPN hasn't set a real time for this match yet — it reports the
+                            // slot with a nominal placeholder date (commonly the match-day at
+                            // 04:00Z / midnight ET) and flags it explicitly via
+                            // status.type.shortDetail === "TBD" (its own site shows these as
+                            // "8/19 - TBD"). Don't publish a fake time/status for an event that
+                            // isn't actually scheduled — it'll appear normally once ESPN
+                            // announces the real slot on a later scrape.
+                            if (comp.status?.type?.shortDetail === 'TBD') {
+                                continue;
+                            }
 
                             // Skip if both are TBD or empty
                             if ((!homeTeam || homeTeam === 'TBD') && (!awayTeam || awayTeam === 'TBD')) {
