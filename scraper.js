@@ -259,7 +259,15 @@ const LEAGUES = [
     },
     {
         "sport": "soccer",
+        "league": "uefa.europa_qual"
+    },
+    {
+        "sport": "soccer",
         "league": "uefa.europa.conf"
+    },
+    {
+        "sport": "soccer",
+        "league": "uefa.europa.conf_qual"
     },
     {
         "sport": "soccer",
