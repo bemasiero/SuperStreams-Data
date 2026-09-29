@@ -36,19 +36,17 @@ function hoursSince(isoString) {
 }
 
 const BASE = 'https://programacao.claro.com.br/gatekeeper';
-const EPG_WINDOW_DAYS = 7;
+const EPG_WINDOW_DAYS = 2; // today + tomorrow only — see updateEPG for why
 const LOGO_SIZE = 256;
 
 // Single-user app, near-static source data: Claro's channel lineup rarely
-// changes and the EPG only needs to look a week out, so this throttles real
-// work to roughly this often rather than re-fetching/re-rasterizing
-// everything on every 4h sports-scraper tick (this script runs in the same
-// job — see the workflow). `lineup/`, `epg/`, `logos/` are restored from an
-// actions/cache between runs specifically so this staleness check has
-// something to compare against; without that, every run would look like a
-// cold start.
+// changes, so this throttles the expensive lineup+logo refresh to roughly
+// once a week rather than re-fetching/re-rasterizing everything on every 4h
+// sports-scraper tick (this script runs in the same job — see the
+// workflow). `lineup/`, `epg/`, `logos/` are restored from an actions/cache
+// between runs specifically so this staleness check has something to
+// compare against; without that, every run would look like a cold start.
 const LINEUP_MAX_AGE_HOURS = 7 * 24;
-const EPG_MAX_AGE_HOURS = 20; // comfortably under 24h so the window still advances exactly once/day
 
 // Cities to publish a lineup/EPG snapshot for. Add more by id_cidade.
 const CITIES = [
@@ -152,27 +150,21 @@ async function updateLineup(cityId) {
     }
 }
 
-// Maintains a rolling 7-day window of date-named EPG files. "Today" is the
-// only date that ever re-fetches once it already has a file — it's the one
-// most likely to have shifted (a live event running long, a schedule swap).
-// Every other date fetches exactly once, the run it first enters the window,
-// then stays untouched (carried forward via the actions/cache) until it ages
-// out and gets pruned.
+// Maintains a rolling today+tomorrow window of date-named EPG files. A date
+// fetches exactly once — the run it first enters the window as "tomorrow" —
+// and is never touched again, including once it becomes "today": a 48h
+// window is short enough that re-checking for drift (a live event running
+// long, a schedule swap) isn't worth an extra request here. This makes the
+// function idempotent and self-throttling with no time-based staleness
+// check needed: "is a target date missing a file" is only ever true once
+// per calendar day, whenever the window has actually advanced.
 async function updateEPG(cityId) {
     const epgDir = path.join('epg', cityId);
     fs.mkdirSync(epgDir, { recursive: true });
 
-    const todayPath = path.join(epgDir, `${isoDate(0)}.json`);
-    const todayExisting = readJSONIfExists(todayPath);
-    if (todayExisting && hoursSince(todayExisting.generatedAt) < EPG_MAX_AGE_HOURS) {
-        console.log(`📅 EPG for ${cityId} is fresh (today's guide ${hoursSince(todayExisting.generatedAt).toFixed(1)}h old) — skipping`);
-        return;
-    }
-
-    console.log(`📅 Refreshing EPG for city ${cityId}...`);
     const targetDates = new Set(Array.from({ length: EPG_WINDOW_DAYS }, (_, i) => isoDate(i)));
 
-    // Expire any file whose date has fallen out of the rolling window.
+    // Expire any file whose date has fallen out of the window.
     for (const file of fs.readdirSync(epgDir)) {
         const date = file.replace('.json', '');
         if (!targetDates.has(date)) {
@@ -181,10 +173,11 @@ async function updateEPG(cityId) {
         }
     }
 
-    const today = isoDate(0);
+    let fetchedAny = false;
     for (const date of targetDates) {
         const filePath = path.join(epgDir, `${date}.json`);
-        if (date !== today && fs.existsSync(filePath)) continue; // already have it, leave it alone
+        if (fs.existsSync(filePath)) continue; // already have it, never re-fetch
+        fetchedAny = true;
 
         try {
             const docs = await fetchEPGDay(cityId, date);
@@ -204,6 +197,9 @@ async function updateEPG(cityId) {
         } catch (error) {
             console.error(`❌ EPG fetch failed for city ${cityId}, ${date}:`, error.message);
         }
+    }
+    if (!fetchedAny) {
+        console.log(`📅 EPG for ${cityId} already covers today+tomorrow — skipping`);
     }
 }
 
