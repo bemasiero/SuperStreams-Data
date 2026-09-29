@@ -21,8 +21,55 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Install dependencies
+        run: npm ci
+
       - name: Run Scraper
         run: node scraper.js
+
+      # Claro's lineup/EPG data is near-static (single-user app, one city) —
+      # claro-scraper.js throttles itself internally (weekly lineup/logo
+      # refresh, and each EPG date fetched only once, ever), but that only
+      # works if it can see what it last published. force_orphan below wipes
+      # gh-pages on every run, so this cache is the only place that state
+      # survives between runs; without it every run would look like a cold
+      # start and refetch everything anyway.
+      - name: Restore Claro data cache
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            lineup
+            epg
+            logos
+          key: claro-data-${{ github.run_id }}
+          restore-keys: |
+            claro-data-
+
+      # A hiccup in this separate, unofficial API must never block
+      # publishing the sports schedule this job exists for, since
+      # force_orphan below republishes everything from this one checkout in
+      # a single deploy.
+      - name: Run Claro Scraper
+        continue-on-error: true
+        run: node claro-scraper.js
+
+      - name: Save Claro data cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            lineup
+            epg
+            logos
+          key: claro-data-${{ github.run_id }}
+
+      # peaceiris/actions-gh-pages runs `git add -A` on publish_dir, which
+      # respects .gitignore — and .gitignore deliberately excludes
+      # lineup/epg/logos from the *source* branch (they're generated, not
+      # committed there). Without removing it first, those exact directories
+      # would silently never make it into the gh-pages commit either.
+      - name: Remove .gitignore before deploy
+        run: rm -f .gitignore
 
       - name: Deploy to GitHub Pages Branch
         uses: peaceiris/actions-gh-pages@v3
@@ -31,4 +78,4 @@ jobs:
           publish_dir: .
           publish_branch: gh-pages
           force_orphan: true
-          exclude_assets: '.github,scraper.js,package.json'
+          exclude_assets: '.github,scraper.js,claro-scraper.js,package.json,package-lock.json,node_modules'

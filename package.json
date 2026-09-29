@@ -1,10 +1,13 @@
 {
   "name": "superstreams-data",
   "version": "1.0.0",
-  "description": "Scrapes ESPN API to build a global sports schedule JSON.",
+  "description": "Scrapes ESPN API to build a global sports schedule JSON, and Claro's TV guide to build a channel lineup/EPG JSON.",
   "main": "scraper.js",
   "scripts": {
-    "start": "node scraper.js"
+    "start": "node scraper.js",
+    "claro": "node claro-scraper.js"
   },
-  "dependencies": {}
+  "dependencies": {
+    "sharp": "^0.35.5"
+  }
 }
