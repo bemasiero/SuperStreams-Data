@@ -23,9 +23,32 @@ function fetchBuffer(url) {
     });
 }
 
+function readJSONIfExists(filePath) {
+    try {
+        return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    } catch {
+        return null;
+    }
+}
+
+function hoursSince(isoString) {
+    return (Date.now() - new Date(isoString).getTime()) / 3600000;
+}
+
 const BASE = 'https://programacao.claro.com.br/gatekeeper';
-const EPG_DAYS = 7; // Claro's guide has real data out to at least 10 days; 7 is a comfortable week-ahead window.
+const EPG_WINDOW_DAYS = 7;
 const LOGO_SIZE = 256;
+
+// Single-user app, near-static source data: Claro's channel lineup rarely
+// changes and the EPG only needs to look a week out, so this throttles real
+// work to roughly this often rather than re-fetching/re-rasterizing
+// everything on every 4h sports-scraper tick (this script runs in the same
+// job — see the workflow). `lineup/`, `epg/`, `logos/` are restored from an
+// actions/cache between runs specifically so this staleness check has
+// something to compare against; without that, every run would look like a
+// cold start.
+const LINEUP_MAX_AGE_HOURS = 7 * 24;
+const EPG_MAX_AGE_HOURS = 20; // comfortably under 24h so the window still advances exactly once/day
 
 // Cities to publish a lineup/EPG snapshot for. Add more by id_cidade.
 const CITIES = [
@@ -65,28 +88,123 @@ async function fetchEPGDay(cityId, dateStr) {
     return data.response.docs;
 }
 
-// Many channels share the same brand/placeholder SVG (165 unique logos across
-// 274 Porto Alegre channels) — rasterize each source URL once, keyed by a
-// hash of the URL, and let channels with the same logo point at the same PNG.
-async function rasterizeLogos(svgURLs) {
-    const pathByURL = new Map();
-    fs.mkdirSync('logos', { recursive: true });
+async function rasterizeLogo(url) {
+    const hash = crypto.createHash('sha1').update(url).digest('hex').slice(0, 16);
+    const relPath = path.join('logos', `${hash}.png`);
+    try {
+        const svgBuffer = await fetchBuffer(url);
+        await sharp(svgBuffer)
+            .resize(LOGO_SIZE, LOGO_SIZE, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+            .png()
+            .toFile(relPath);
+        return relPath;
+    } catch (error) {
+        console.error(`⚠️ Logo rasterize failed for ${url}:`, error.message);
+        return null;
+    }
+}
 
-    for (const url of svgURLs) {
-        const hash = crypto.createHash('sha1').update(url).digest('hex').slice(0, 16);
-        const relPath = `logos/${hash}.png`;
-        try {
-            const svgBuffer = await fetchBuffer(url);
-            await sharp(svgBuffer)
-                .resize(LOGO_SIZE, LOGO_SIZE, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
-                .png()
-                .toFile(relPath);
-            pathByURL.set(url, relPath);
-        } catch (error) {
-            console.error(`⚠️ Logo rasterize failed for ${url}:`, error.message);
+// Many channels share the same brand/placeholder SVG (165 unique logos
+// across 274 Porto Alegre channels) — rasterize each source URL once.
+async function updateLineup(cityId) {
+    const lineupPath = path.join('lineup', `${cityId}.json`);
+    const existing = readJSONIfExists(lineupPath);
+    if (existing && hoursSince(existing.generatedAt) < LINEUP_MAX_AGE_HOURS) {
+        console.log(`📺 Lineup for ${cityId} is fresh (${existing.channels.length} channels, ${hoursSince(existing.generatedAt).toFixed(1)}h old) — skipping`);
+        return;
+    }
+
+    console.log(`📺 Refreshing lineup for city ${cityId}...`);
+    const channels = await fetchLineup(cityId);
+    console.log(`📺 Fetched ${channels.length} channels`);
+
+    fs.mkdirSync('logos', { recursive: true });
+    const uniqueLogoURLs = [...new Set(channels.map(c => c.url_imagem).filter(Boolean))];
+    const logoPathByURL = new Map();
+    for (const url of uniqueLogoURLs) {
+        const relPath = await rasterizeLogo(url);
+        if (relPath) logoPathByURL.set(url, relPath);
+    }
+    console.log(`🖼️ Rasterized ${logoPathByURL.size}/${uniqueLogoURLs.length} unique logos`);
+
+    const lineupChannels = channels.map(c => ({
+        id: c.id_revel,
+        channelNumber: c.cn_canal,
+        name: c.nome,
+        category: c.categoria,
+        logoPath: logoPathByURL.get(c.url_imagem) || null,
+    }));
+
+    fs.mkdirSync('lineup', { recursive: true });
+    fs.writeFileSync(lineupPath, JSON.stringify({
+        cityId, generatedAt: new Date().toISOString(), channels: lineupChannels,
+    }, null, 2));
+    console.log(`✅ Wrote ${lineupPath}`);
+
+    // Prune logos no longer referenced by any channel, so removed/renamed
+    // brand assets don't accumulate forever across weekly refreshes.
+    const referenced = new Set(lineupChannels.map(c => c.logoPath).filter(Boolean).map(p => path.basename(p)));
+    for (const file of fs.readdirSync('logos')) {
+        if (!referenced.has(file)) {
+            fs.unlinkSync(path.join('logos', file));
+            console.log(`🗑️ Pruned unreferenced logo ${file}`);
         }
     }
-    return pathByURL;
+}
+
+// Maintains a rolling 7-day window of date-named EPG files. "Today" is the
+// only date that ever re-fetches once it already has a file — it's the one
+// most likely to have shifted (a live event running long, a schedule swap).
+// Every other date fetches exactly once, the run it first enters the window,
+// then stays untouched (carried forward via the actions/cache) until it ages
+// out and gets pruned.
+async function updateEPG(cityId) {
+    const epgDir = path.join('epg', cityId);
+    fs.mkdirSync(epgDir, { recursive: true });
+
+    const todayPath = path.join(epgDir, `${isoDate(0)}.json`);
+    const todayExisting = readJSONIfExists(todayPath);
+    if (todayExisting && hoursSince(todayExisting.generatedAt) < EPG_MAX_AGE_HOURS) {
+        console.log(`📅 EPG for ${cityId} is fresh (today's guide ${hoursSince(todayExisting.generatedAt).toFixed(1)}h old) — skipping`);
+        return;
+    }
+
+    console.log(`📅 Refreshing EPG for city ${cityId}...`);
+    const targetDates = new Set(Array.from({ length: EPG_WINDOW_DAYS }, (_, i) => isoDate(i)));
+
+    // Expire any file whose date has fallen out of the rolling window.
+    for (const file of fs.readdirSync(epgDir)) {
+        const date = file.replace('.json', '');
+        if (!targetDates.has(date)) {
+            fs.unlinkSync(path.join(epgDir, file));
+            console.log(`🗑️ Expired epg/${cityId}/${file}`);
+        }
+    }
+
+    const today = isoDate(0);
+    for (const date of targetDates) {
+        const filePath = path.join(epgDir, `${date}.json`);
+        if (date !== today && fs.existsSync(filePath)) continue; // already have it, leave it alone
+
+        try {
+            const docs = await fetchEPGDay(cityId, date);
+            const programs = docs.map(d => ({
+                channelId: d.id_revel,
+                id: d.id_exibicao,
+                programId: d.id_programa,
+                title: d.titulo,
+                genre: d.genero || null,
+                start: fixClaroTimestamp(d.dh_inicio),
+                end: fixClaroTimestamp(d.dh_fim),
+            }));
+            fs.writeFileSync(filePath, JSON.stringify({
+                cityId, date, generatedAt: new Date().toISOString(), programs,
+            }, null, 2));
+            console.log(`✅ Wrote epg/${cityId}/${date}.json (${programs.length} programs)`);
+        } catch (error) {
+            console.error(`❌ EPG fetch failed for city ${cityId}, ${date}:`, error.message);
+        }
+    }
 }
 
 async function run() {
@@ -96,55 +214,15 @@ async function run() {
         console.log(`\n📡 City ${city.id} (${city.name})`);
 
         try {
-            const channels = await fetchLineup(city.id);
-            console.log(`📺 Fetched ${channels.length} channels`);
-
-            const uniqueLogoURLs = [...new Set(channels.map(c => c.url_imagem).filter(Boolean))];
-            const logoPathByURL = await rasterizeLogos(uniqueLogoURLs);
-            console.log(`🖼️ Rasterized ${logoPathByURL.size}/${uniqueLogoURLs.length} unique logos`);
-
-            const lineupChannels = channels.map(c => ({
-                id: c.id_revel,
-                channelNumber: c.cn_canal,
-                name: c.nome,
-                category: c.categoria,
-                logoPath: logoPathByURL.get(c.url_imagem) || null,
-            }));
-
-            fs.mkdirSync('lineup', { recursive: true });
-            fs.writeFileSync(
-                path.join('lineup', `${city.id}.json`),
-                JSON.stringify({ cityId: city.id, generatedAt: new Date().toISOString(), channels: lineupChannels }, null, 2)
-            );
-            console.log(`✅ Wrote lineup/${city.id}.json`);
+            await updateLineup(city.id);
         } catch (error) {
-            console.error(`❌ Lineup fetch failed for city ${city.id}:`, error.message);
+            console.error(`❌ Lineup update failed for city ${city.id}:`, error.message);
         }
 
-        const epgDir = path.join('epg', city.id);
-        fs.mkdirSync(epgDir, { recursive: true });
-
-        for (let offset = 0; offset < EPG_DAYS; offset++) {
-            const dateStr = isoDate(offset);
-            try {
-                const docs = await fetchEPGDay(city.id, dateStr);
-                const programs = docs.map(d => ({
-                    channelId: d.id_revel,
-                    id: d.id_exibicao,
-                    programId: d.id_programa,
-                    title: d.titulo,
-                    genre: d.genero || null,
-                    start: fixClaroTimestamp(d.dh_inicio),
-                    end: fixClaroTimestamp(d.dh_fim),
-                }));
-                fs.writeFileSync(
-                    path.join(epgDir, `${dateStr}.json`),
-                    JSON.stringify({ cityId: city.id, date: dateStr, generatedAt: new Date().toISOString(), programs }, null, 2)
-                );
-                console.log(`✅ Wrote epg/${city.id}/${dateStr}.json (${programs.length} programs)`);
-            } catch (error) {
-                console.error(`❌ EPG fetch failed for city ${city.id}, ${dateStr}:`, error.message);
-            }
+        try {
+            await updateEPG(city.id);
+        } catch (error) {
+            console.error(`❌ EPG update failed for city ${city.id}:`, error.message);
         }
     }
 }
