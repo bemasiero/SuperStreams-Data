@@ -21,8 +21,19 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Install dependencies
+        run: npm ci
+
       - name: Run Scraper
         run: node scraper.js
+
+      # Claro's lineup/EPG data is a separate, unofficial API from ESPN's —
+      # a hiccup there must never block publishing the sports schedule this
+      # job exists for, since force_orphan below wipes and republishes
+      # everything from this one checkout in a single deploy.
+      - name: Run Claro Scraper
+        continue-on-error: true
+        run: node claro-scraper.js
 
       - name: Deploy to GitHub Pages Branch
         uses: peaceiris/actions-gh-pages@v3
@@ -31,4 +42,4 @@ jobs:
           publish_dir: .
           publish_branch: gh-pages
           force_orphan: true
-          exclude_assets: '.github,scraper.js,package.json'
+          exclude_assets: '.github,scraper.js,claro-scraper.js,package.json,package-lock.json,node_modules'
