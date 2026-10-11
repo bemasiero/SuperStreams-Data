@@ -1,0 +1,1924 @@
+{
+  "cityId": "46",
+  "generatedAt": "2026-10-06T23:28:38.115Z",
+  "channels": [
+    {
+      "id": "46_1853",
+      "channelNumber": "0",
+      "name": "Cultura",
+      "category": "CANAIS ABERTOS OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/fccacf3a3fc2f4cb.png"
+    },
+    {
+      "id": "46_2107",
+      "channelNumber": "0",
+      "name": "Rádio Pampa FM",
+      "category": "Canais de Música",
+      "logoPath": "logos/82b0c2158a96b8c3.png"
+    },
+    {
+      "id": "46_1899",
+      "channelNumber": "2",
+      "name": "Record",
+      "category": "CANAIS ABERTOS OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/b51c7c76afa7c6e2.png"
+    },
+    {
+      "id": "46_1972",
+      "channelNumber": "3",
+      "name": "TV Brasil",
+      "category": "CANAIS ABERTOS OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/8ea97dceeb373bfa.png"
+    },
+    {
+      "id": "46_1931",
+      "channelNumber": "4",
+      "name": "Rede TV (TV Pampa)",
+      "category": "CANAIS ABERTOS OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/960615463402636c.png"
+    },
+    {
+      "id": "46_1944",
+      "channelNumber": "5",
+      "name": "SBT (Local)",
+      "category": "CANAIS ABERTOS OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/dd536296bef66717.png"
+    },
+    {
+      "id": "46_1833",
+      "channelNumber": "6",
+      "name": "Canal Comunitário",
+      "category": "CANAIS ABERTOS OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/82b0c2158a96b8c3.png"
+    },
+    {
+      "id": "46_2027",
+      "channelNumber": "7",
+      "name": "TVE RS",
+      "category": "CANAIS ABERTOS OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/82b0c2158a96b8c3.png"
+    },
+    {
+      "id": "46_1995",
+      "channelNumber": "8",
+      "name": "TV Justiça",
+      "category": "CANAIS ABERTOS OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/79c378da7c3de2e7.png"
+    },
+    {
+      "id": "46_1855",
+      "channelNumber": "9",
+      "name": "Cultura (Local)",
+      "category": "CANAIS ABERTOS OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": null
+    },
+    {
+      "id": "46_1816",
+      "channelNumber": "10",
+      "name": "Band (Local)",
+      "category": "CANAIS ABERTOS OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/4b388bc87e30333f.png"
+    },
+    {
+      "id": "46_628",
+      "channelNumber": "11",
+      "name": "TV Urbana",
+      "category": "Cortesia ²",
+      "logoPath": "logos/82b0c2158a96b8c3.png"
+    },
+    {
+      "id": "46_2140",
+      "channelNumber": "12",
+      "name": "Globo (RBS)",
+      "category": "CANAIS ABERTOS OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/8affa84ddb9318f1.png"
+    },
+    {
+      "id": "46_1986",
+      "channelNumber": "13",
+      "name": "TV Escola",
+      "category": "CANAIS ABERTOS OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/2ab03ca1501440cd.png"
+    },
+    {
+      "id": "46_1842",
+      "channelNumber": "15",
+      "name": "Canal Universitário",
+      "category": "CANAIS ABERTOS OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/bbcaba0ad59ce7f8.png"
+    },
+    {
+      "id": "46_1838",
+      "channelNumber": "16",
+      "name": "Canal Legislativo",
+      "category": "CANAIS ABERTOS OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/97b59729a6cfe674.png"
+    },
+    {
+      "id": "46_2009",
+      "channelNumber": "17",
+      "name": "TV Senado",
+      "category": "CANAIS ABERTOS OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/2a05f8db9c52e23c.png"
+    },
+    {
+      "id": "46_1975",
+      "channelNumber": "18",
+      "name": "TV Câmara",
+      "category": "CANAIS ABERTOS OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/f5e7fcdba74f9acc.png"
+    },
+    {
+      "id": "46_2298",
+      "channelNumber": "19",
+      "name": "TV Brasil 2",
+      "category": "CANAIS ABERTOS OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/8ea97dceeb373bfa.png"
+    },
+    {
+      "id": "46_2189",
+      "channelNumber": "20",
+      "name": "Bah! ",
+      "category": "Canais Abertos Cortesia ²",
+      "logoPath": "logos/82b0c2158a96b8c3.png"
+    },
+    {
+      "id": "46_2033",
+      "channelNumber": "21",
+      "name": "Ulbra TV",
+      "category": "CANAIS ABERTOS OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/82b0c2158a96b8c3.png"
+    },
+    {
+      "id": "46_2323",
+      "channelNumber": "24",
+      "name": "RS Play Tv",
+      "category": "Cortesia ²",
+      "logoPath": "logos/42f1b281620e3b63.png"
+    },
+    {
+      "id": "46_896",
+      "channelNumber": "25",
+      "name": "RIT TV",
+      "category": "Cortesia ²",
+      "logoPath": "logos/6cb63ac544d5a805.png"
+    },
+    {
+      "id": "46_1093",
+      "channelNumber": "28",
+      "name": "Polishop",
+      "category": "Cortesia ²",
+      "logoPath": "logos/c76fb95b9bd3b3b6.png"
+    },
+    {
+      "id": "46_459",
+      "channelNumber": "29",
+      "name": "Shoptime",
+      "category": "Cortesia ²",
+      "logoPath": "logos/63a5171b3115c3ae.png"
+    },
+    {
+      "id": "46_2439",
+      "channelNumber": "30",
+      "name": "Canal do cliente",
+      "category": "Canal NET",
+      "logoPath": "logos/97b59729a6cfe674.png"
+    },
+    {
+      "id": "46_430",
+      "channelNumber": "34",
+      "name": "Futura",
+      "category": "Documentários",
+      "logoPath": "logos/e3eca05d79158042.png"
+    },
+    {
+      "id": "46_1056",
+      "channelNumber": "35",
+      "name": "Off",
+      "category": "Variedades",
+      "logoPath": "logos/a462adc455abd195.png"
+    },
+    {
+      "id": "46_1023",
+      "channelNumber": "37",
+      "name": "SporTV 3 ",
+      "category": "Esportes",
+      "logoPath": "logos/a2ef9a32dc082abe.png"
+    },
+    {
+      "id": "46_470",
+      "channelNumber": "38",
+      "name": "SporTV 2",
+      "category": "Esportes",
+      "logoPath": "logos/ce9a028cdcee1195.png"
+    },
+    {
+      "id": "46_471",
+      "channelNumber": "39",
+      "name": "SporTV",
+      "category": "Esportes",
+      "logoPath": "logos/bf6f4ad7ed0d648a.png"
+    },
+    {
+      "id": "46_432",
+      "channelNumber": "40",
+      "name": "GloboNews",
+      "category": "Notícias",
+      "logoPath": "logos/0f0c989c6cbe24f7.png"
+    },
+    {
+      "id": "46_433",
+      "channelNumber": "41",
+      "name": "GNT",
+      "category": "Variedades",
+      "logoPath": "logos/eea6b9118dda9ac8.png"
+    },
+    {
+      "id": "46_450",
+      "channelNumber": "42",
+      "name": "Multishow",
+      "category": "Entretenimento/Música",
+      "logoPath": "logos/1108c494a8ec27e1.png"
+    },
+    {
+      "id": "46_872",
+      "channelNumber": "43",
+      "name": "Viva",
+      "category": "Variedades",
+      "logoPath": "logos/d8f17d278e4a429c.png"
+    },
+    {
+      "id": "46_1054",
+      "channelNumber": "44",
+      "name": "Modo viagem",
+      "category": "Variedades",
+      "logoPath": "logos/4d8edde33a7f1a0d.png"
+    },
+    {
+      "id": "46_425",
+      "channelNumber": "50",
+      "name": "E! ",
+      "category": "Variedades",
+      "logoPath": "logos/a9bcbdf523bfca02.png"
+    },
+    {
+      "id": "46_1512",
+      "channelNumber": "52",
+      "name": "TLC",
+      "category": "Variedades",
+      "logoPath": "logos/0bf40c36a3ffc5e2.png"
+    },
+    {
+      "id": "46_1073",
+      "channelNumber": "53",
+      "name": "Arte 1",
+      "category": "Variedades",
+      "logoPath": "logos/b222290dc0feb215.png"
+    },
+    {
+      "id": "46_952",
+      "channelNumber": "54",
+      "name": "Food Network",
+      "category": "Variedades",
+      "logoPath": "logos/e4531c9d6693cbe2.png"
+    },
+    {
+      "id": "46_438",
+      "channelNumber": "55",
+      "name": "Discovery Home & Health",
+      "category": "Variedades",
+      "logoPath": "logos/3ead121a5dabb296.png"
+    },
+    {
+      "id": "46_1053",
+      "channelNumber": "56",
+      "name": "Curta!",
+      "category": "Variedades",
+      "logoPath": "logos/c130da5ab995a8c0.png"
+    },
+    {
+      "id": "46_1202",
+      "channelNumber": "58",
+      "name": "FISH TV",
+      "category": "Variedades",
+      "logoPath": "logos/bd297e7ec71f8c26.png"
+    },
+    {
+      "id": "46_2311",
+      "channelNumber": "60",
+      "name": "HGTV",
+      "category": "Variedades",
+      "logoPath": "logos/92411c61cedc05ac.png"
+    },
+    {
+      "id": "46_1058",
+      "channelNumber": "65",
+      "name": "Woohoo",
+      "category": "Variedades",
+      "logoPath": "logos/36321278de1fd8bd.png"
+    },
+    {
+      "id": "46_426",
+      "channelNumber": "70",
+      "name": "ESPN",
+      "category": "Esportes",
+      "logoPath": "logos/5ea0bf20e7746eca.png"
+    },
+    {
+      "id": "46_427",
+      "channelNumber": "71",
+      "name": "ESPN 2",
+      "category": "Esportes",
+      "logoPath": "logos/84c5c0a67ee965b7.png"
+    },
+    {
+      "id": "46_1034",
+      "channelNumber": "73",
+      "name": "Espn 4",
+      "category": "Esportes",
+      "logoPath": "logos/385cee85ab1a83ba.png"
+    },
+    {
+      "id": "46_1021",
+      "channelNumber": "75",
+      "name": "Band Sports",
+      "category": "Esportes",
+      "logoPath": "logos/a3e3934f4ac49d9e.png"
+    },
+    {
+      "id": "46_2350",
+      "channelNumber": "77",
+      "name": "CNN Brasil",
+      "category": "Notícias",
+      "logoPath": "logos/dd70097a61464724.png"
+    },
+    {
+      "id": "46_592",
+      "channelNumber": "78",
+      "name": "Record News ",
+      "category": "Notícias",
+      "logoPath": "logos/9ff47cf483235470.png"
+    },
+    {
+      "id": "46_1022",
+      "channelNumber": "79",
+      "name": "Band News",
+      "category": "Notícias",
+      "logoPath": "logos/9ba08054834327be.png"
+    },
+    {
+      "id": "46_472",
+      "channelNumber": "80",
+      "name": "National Geographic",
+      "category": "Documentários",
+      "logoPath": "logos/3a0e1f12499a8fd0.png"
+    },
+    {
+      "id": "46_421",
+      "channelNumber": "81",
+      "name": "Discovery Channel",
+      "category": "Documentários",
+      "logoPath": "logos/15398c93af512855.png"
+    },
+    {
+      "id": "46_407",
+      "channelNumber": "82",
+      "name": "Animal Planet",
+      "category": "Documentários",
+      "logoPath": "logos/07aec08750924949.png"
+    },
+    {
+      "id": "46_2257",
+      "channelNumber": "83",
+      "name": "The History Channel",
+      "category": "Documentários",
+      "logoPath": "logos/8b3aedba497f570e.png"
+    },
+    {
+      "id": "46_419",
+      "channelNumber": "84",
+      "name": "Discovery Turbo",
+      "category": "Documentários",
+      "logoPath": "logos/a06337290a0c194e.png"
+    },
+    {
+      "id": "46_423",
+      "channelNumber": "85",
+      "name": "Discovery Science",
+      "category": "Documentários",
+      "logoPath": "logos/bb31abdd3d8d4540.png"
+    },
+    {
+      "id": "46_2417",
+      "channelNumber": "99",
+      "name": "Gloobinho",
+      "category": "Infantis",
+      "logoPath": "logos/72d206f7f0c648c5.png"
+    },
+    {
+      "id": "46_420",
+      "channelNumber": "100",
+      "name": "Discovery Kids",
+      "category": "Infantis",
+      "logoPath": "logos/21d39b50018dc897.png"
+    },
+    {
+      "id": "46_1042",
+      "channelNumber": "101",
+      "name": "Gloob",
+      "category": "Infantis",
+      "logoPath": "logos/2c7bdc29c16013f9.png"
+    },
+    {
+      "id": "46_488",
+      "channelNumber": "102",
+      "name": "Disney Channel",
+      "category": "Infantis",
+      "logoPath": "logos/13bfa873d9209186.png"
+    },
+    {
+      "id": "46_462",
+      "channelNumber": "103",
+      "name": "Nickelodeon",
+      "category": "Infantis",
+      "logoPath": "logos/06f67ede05ccc366.png"
+    },
+    {
+      "id": "46_1270",
+      "channelNumber": "104",
+      "name": "Cartoon Network",
+      "category": "Infantis",
+      "logoPath": "logos/c7bf444ace1cf5eb.png"
+    },
+    {
+      "id": "46_832",
+      "channelNumber": "107",
+      "name": "Nick Jr.",
+      "category": "Infantis",
+      "logoPath": "logos/e7285935960808af.png"
+    },
+    {
+      "id": "46_410",
+      "channelNumber": "108",
+      "name": "cartoonito",
+      "category": "Infantis",
+      "logoPath": "logos/591dbb74f2ebda89.png"
+    },
+    {
+      "id": "46_1563",
+      "channelNumber": "109",
+      "name": "TV Rá Tim Bum",
+      "category": "Infantis",
+      "logoPath": "logos/dede6ae1cfa68c7b.png"
+    },
+    {
+      "id": "46_932",
+      "channelNumber": "111",
+      "name": "Baby Tv",
+      "category": "Infantis",
+      "logoPath": "logos/00c0aa56e0e0dd76.png"
+    },
+    {
+      "id": "46_2165",
+      "channelNumber": "113",
+      "name": "ZooMoo",
+      "category": "Infantis",
+      "logoPath": "logos/fa6c31e1c1c51cb2.png"
+    },
+    {
+      "id": "46_1055",
+      "channelNumber": "120",
+      "name": "BIS",
+      "category": "Entretenimento/Música",
+      "logoPath": "logos/b4fa2163986f518b.png"
+    },
+    {
+      "id": "46_456",
+      "channelNumber": "121",
+      "name": "MTV",
+      "category": "Entretenimento/Música",
+      "logoPath": "logos/08d40a93e4cae974.png"
+    },
+    {
+      "id": "46_1057",
+      "channelNumber": "122",
+      "name": "Play TV",
+      "category": "Entretenimento/Música",
+      "logoPath": "logos/42f1b281620e3b63.png"
+    },
+    {
+      "id": "46_1072",
+      "channelNumber": "123",
+      "name": "Music Box Brazil",
+      "category": "Entretenimento/Música",
+      "logoPath": "logos/a8748109279f45e9.png"
+    },
+    {
+      "id": "46_483",
+      "channelNumber": "130",
+      "name": "Universal TV",
+      "category": "Séries",
+      "logoPath": "logos/c2317ed53755130e.png"
+    },
+    {
+      "id": "46_1103",
+      "channelNumber": "131",
+      "name": "Star Channel",
+      "category": "Séries",
+      "logoPath": "logos/b0586e16749be1d7.png"
+    },
+    {
+      "id": "46_2438",
+      "channelNumber": "132",
+      "name": "Warner Channel",
+      "category": "Séries",
+      "logoPath": "logos/7a15163ea30bddcd.png"
+    },
+    {
+      "id": "46_1500",
+      "channelNumber": "133",
+      "name": "Sony",
+      "category": "Séries",
+      "logoPath": "logos/ec6982adf650b24e.png"
+    },
+    {
+      "id": "46_490",
+      "channelNumber": "134",
+      "name": "FX",
+      "category": "Séries",
+      "logoPath": "logos/36c872b365d463fd.png"
+    },
+    {
+      "id": "46_482",
+      "channelNumber": "135",
+      "name": "AXN",
+      "category": "Séries",
+      "logoPath": "logos/093380e2ab6b3fa9.png"
+    },
+    {
+      "id": "46_1026",
+      "channelNumber": "136",
+      "name": "Tnt novelas",
+      "category": "Séries",
+      "logoPath": "logos/849eaf9933fc106e.png"
+    },
+    {
+      "id": "46_1088",
+      "channelNumber": "137",
+      "name": "Comedy Central",
+      "category": "Séries",
+      "logoPath": "logos/17c8975cfd2e6198.png"
+    },
+    {
+      "id": "46_457",
+      "channelNumber": "138",
+      "name": "A&E",
+      "category": "Séries",
+      "logoPath": "logos/5da7e7a9168779f7.png"
+    },
+    {
+      "id": "46_479",
+      "channelNumber": "139",
+      "name": "ID",
+      "category": "Séries",
+      "logoPath": "logos/e50033b4f2c00341.png"
+    },
+    {
+      "id": "46_530",
+      "channelNumber": "140",
+      "name": "Syfy",
+      "category": "Séries",
+      "logoPath": "logos/3b41faf067559936.png"
+    },
+    {
+      "id": "46_531",
+      "channelNumber": "141",
+      "name": "Lifetime",
+      "category": "Séries",
+      "logoPath": "logos/495cd6c34dede438.png"
+    },
+    {
+      "id": "46_492",
+      "channelNumber": "144",
+      "name": "Cinecanal",
+      "category": "Variedades",
+      "logoPath": "logos/45f2245871964e3a.png"
+    },
+    {
+      "id": "46_1618",
+      "channelNumber": "145",
+      "name": "AMC",
+      "category": "Filmes",
+      "logoPath": "logos/c23f63f2f47bbd12.png"
+    },
+    {
+      "id": "46_2227",
+      "channelNumber": "148",
+      "name": "Film&Arts",
+      "category": "Variedades",
+      "logoPath": "logos/e31cccd6941cbea9.png"
+    },
+    {
+      "id": "46_414",
+      "channelNumber": "150",
+      "name": "Canal Brasil",
+      "category": "Filmes",
+      "logoPath": "logos/28a667c89c8ffa36.png"
+    },
+    {
+      "id": "46_478",
+      "channelNumber": "151",
+      "name": "TNT",
+      "category": "Filmes",
+      "logoPath": "logos/b732dc3884815c12.png"
+    },
+    {
+      "id": "46_532",
+      "channelNumber": "152",
+      "name": "Megapix",
+      "category": "Filmes",
+      "logoPath": "logos/30351b37cb24ba8a.png"
+    },
+    {
+      "id": "46_897",
+      "channelNumber": "154",
+      "name": "Space",
+      "category": "Filmes",
+      "logoPath": "logos/7275372d0d4c5e7a.png"
+    },
+    {
+      "id": "46_1041",
+      "channelNumber": "155",
+      "name": "Cinemax",
+      "category": "Filmes",
+      "logoPath": "logos/9fff92352df28277.png"
+    },
+    {
+      "id": "46_1071",
+      "channelNumber": "156",
+      "name": "Prime Box Brazil",
+      "category": "Filmes",
+      "logoPath": "logos/3a488215db30b366.png"
+    },
+    {
+      "id": "46_692",
+      "channelNumber": "157",
+      "name": "Studio Universal",
+      "category": "Filmes",
+      "logoPath": "logos/b9f5554e6f13b34b.png"
+    },
+    {
+      "id": "46_2423",
+      "channelNumber": "158",
+      "name": "Paramount Network",
+      "category": "Filmes",
+      "logoPath": "logos/0ea3f068f54373a9.png"
+    },
+    {
+      "id": "46_520",
+      "channelNumber": "159",
+      "name": "TCM",
+      "category": "Filmes",
+      "logoPath": "logos/61f84f04f2b3e31c.png"
+    },
+    {
+      "id": "46_473",
+      "channelNumber": "161",
+      "name": "Telecine Premium",
+      "category": "Canais Telecine",
+      "logoPath": "logos/b26f1e21bf3dcd9d.png"
+    },
+    {
+      "id": "46_474",
+      "channelNumber": "162",
+      "name": "Telecine Action",
+      "category": "Canais Telecine",
+      "logoPath": "logos/ee8e841c36589df6.png"
+    },
+    {
+      "id": "46_475",
+      "channelNumber": "163",
+      "name": "Telecine Touch",
+      "category": "Canais Telecine",
+      "logoPath": "logos/af1e3a6e36da1b18.png"
+    },
+    {
+      "id": "46_899",
+      "channelNumber": "164",
+      "name": "Telecine Fun",
+      "category": "Canais Telecine",
+      "logoPath": "logos/c3f6408e80523ec6.png"
+    },
+    {
+      "id": "46_476",
+      "channelNumber": "165",
+      "name": "Telecine Pipoca",
+      "category": "Canais Telecine",
+      "logoPath": "logos/5314c0df39eebc36.png"
+    },
+    {
+      "id": "46_477",
+      "channelNumber": "166",
+      "name": "Telecine Cult",
+      "category": "Canais Telecine",
+      "logoPath": "logos/b50ff514432d8b34.png"
+    },
+    {
+      "id": "46_437",
+      "channelNumber": "171",
+      "name": "HBO",
+      "category": "Canais HBO",
+      "logoPath": "logos/a8b6be48fd4ece59.png"
+    },
+    {
+      "id": "46_436",
+      "channelNumber": "172",
+      "name": "HBO 2",
+      "category": "Canais HBO",
+      "logoPath": "logos/ee54acf3b29de63f.png"
+    },
+    {
+      "id": "46_2331",
+      "channelNumber": "173",
+      "name": "HBO +",
+      "category": "Canais HBO",
+      "logoPath": "logos/2b064b637fb84124.png"
+    },
+    {
+      "id": "46_439",
+      "channelNumber": "175",
+      "name": "HBO Family",
+      "category": "Canais HBO",
+      "logoPath": "logos/d9a6f5603a190515.png"
+    },
+    {
+      "id": "46_440",
+      "channelNumber": "176",
+      "name": "HBO Signature",
+      "category": "Canais HBO",
+      "logoPath": "logos/dafbb54eb5fe1490.png"
+    },
+    {
+      "id": "46_453",
+      "channelNumber": "177",
+      "name": "Hbo Pop",
+      "category": "Canais HBO",
+      "logoPath": "logos/8cc5eb2e1386e491.png"
+    },
+    {
+      "id": "46_449",
+      "channelNumber": "178",
+      "name": "Hbo Mundi",
+      "category": "Canais HBO",
+      "logoPath": "logos/1973e50d1d8ff059.png"
+    },
+    {
+      "id": "46_446",
+      "channelNumber": "179",
+      "name": "HBO Xtreme",
+      "category": "Canais HBO",
+      "logoPath": "logos/0ceee6a99cd91adc.png"
+    },
+    {
+      "id": "46_847",
+      "channelNumber": "183",
+      "name": "Terra Viva",
+      "category": "Cortesia ²",
+      "logoPath": "logos/2a33a52a8c9acd47.png"
+    },
+    {
+      "id": "46_467",
+      "channelNumber": "185",
+      "name": "Canal Rural",
+      "category": "Cortesia ²",
+      "logoPath": "logos/2010b813b3ecc6cf.png"
+    },
+    {
+      "id": "46_2353",
+      "channelNumber": "189",
+      "name": "Agro Mais",
+      "category": "Notícias",
+      "logoPath": "logos/39c62addef10caee.png"
+    },
+    {
+      "id": "46_509",
+      "channelNumber": "190",
+      "name": "Canal do Boi",
+      "category": "Cortesia ²",
+      "logoPath": "logos/25b2e795a40fab47.png"
+    },
+    {
+      "id": "46_2285",
+      "channelNumber": "191",
+      "name": "TV Pai Eterno",
+      "category": "Cortesia ²",
+      "logoPath": "logos/78157670bdf10ba7.png"
+    },
+    {
+      "id": "46_484",
+      "channelNumber": "193",
+      "name": "Rede Vida",
+      "category": "Cortesia ²",
+      "logoPath": "logos/de98c95438aabe0e.png"
+    },
+    {
+      "id": "46_1177",
+      "channelNumber": "195",
+      "name": "Tv Aparecida",
+      "category": "Cortesia ²",
+      "logoPath": "logos/01bcfb5633a1e678.png"
+    },
+    {
+      "id": "46_1231",
+      "channelNumber": "196",
+      "name": "Boa Vontade TV",
+      "category": "Cortesia ²",
+      "logoPath": "logos/ca5a14007f20208a.png"
+    },
+    {
+      "id": "46_2358",
+      "channelNumber": "199",
+      "name": "CGTN",
+      "category": "Cortesia ²",
+      "logoPath": "logos/8a15e3f29102ba90.png"
+    },
+    {
+      "id": "46_416",
+      "channelNumber": "200",
+      "name": "CNN International",
+      "category": "Mundo",
+      "logoPath": "logos/61c8845c49d7ccb9.png"
+    },
+    {
+      "id": "46_1230",
+      "channelNumber": "201",
+      "name": "Bloomberg TV",
+      "category": "Mundo",
+      "logoPath": "logos/c048bbb2d6a7db70.png"
+    },
+    {
+      "id": "46_409",
+      "channelNumber": "202",
+      "name": "BBC World News",
+      "category": "Mundo",
+      "logoPath": "logos/e925ec6d0cd2ad3c.png"
+    },
+    {
+      "id": "46_1372",
+      "channelNumber": "203",
+      "name": "RAI International",
+      "category": "Mundo",
+      "logoPath": "logos/720e61fefbcf8a2e.png"
+    },
+    {
+      "id": "46_480",
+      "channelNumber": "204",
+      "name": "TV5 Monde",
+      "category": "Mundo",
+      "logoPath": "logos/6dd8760f4f13e68a.png"
+    },
+    {
+      "id": "46_1584",
+      "channelNumber": "205",
+      "name": "TVE International",
+      "category": "Mundo",
+      "logoPath": "logos/22209b40d1b14b77.png"
+    },
+    {
+      "id": "46_1280",
+      "channelNumber": "206",
+      "name": "DW-TV",
+      "category": "Mundo",
+      "logoPath": "logos/4ad6779245de3bc1.png"
+    },
+    {
+      "id": "46_461",
+      "channelNumber": "207",
+      "name": "NHK World Premium",
+      "category": "Mundo",
+      "logoPath": "logos/b16b0ea2f4c2a730.png"
+    },
+    {
+      "id": "46_1489",
+      "channelNumber": "208",
+      "name": "SIC International",
+      "category": "Mundo",
+      "logoPath": "logos/3217315301f4b1e2.png"
+    },
+    {
+      "id": "46_2442",
+      "channelNumber": "210",
+      "name": "France 24",
+      "category": "Notícias",
+      "logoPath": "logos/22aed801eb890555.png"
+    },
+    {
+      "id": "46_2444",
+      "channelNumber": "220",
+      "name": "Portal do Futebol",
+      "category": "Interativos",
+      "logoPath": "logos/f4281c37e0f88320.png"
+    },
+    {
+      "id": "46_1365",
+      "channelNumber": "221",
+      "name": "Premiere Clubes",
+      "category": "Canais Premiere",
+      "logoPath": "logos/31d3ef459588b48a.png"
+    },
+    {
+      "id": "46_1360",
+      "channelNumber": "222",
+      "name": "Premiere 2",
+      "category": "Canais Premiere",
+      "logoPath": "logos/31d3ef459588b48a.png"
+    },
+    {
+      "id": "46_1361",
+      "channelNumber": "223",
+      "name": "Premiere 3",
+      "category": "Canais Premiere",
+      "logoPath": "logos/31d3ef459588b48a.png"
+    },
+    {
+      "id": "46_1362",
+      "channelNumber": "224",
+      "name": "Premiere 4",
+      "category": "Canais Premiere",
+      "logoPath": "logos/5da10bfa3daa6439.png"
+    },
+    {
+      "id": "46_1363",
+      "channelNumber": "225",
+      "name": "Premiere 5",
+      "category": "Canais Premiere",
+      "logoPath": "logos/31d3ef459588b48a.png"
+    },
+    {
+      "id": "46_1364",
+      "channelNumber": "226",
+      "name": "Premiere 6",
+      "category": "Canais Premiere",
+      "logoPath": "logos/31d3ef459588b48a.png"
+    },
+    {
+      "id": "46_693",
+      "channelNumber": "227",
+      "name": "Premiere 7",
+      "category": "Canais Premiere",
+      "logoPath": "logos/181b0a7373cc3180.png"
+    },
+    {
+      "id": "46_1014",
+      "channelNumber": "228",
+      "name": "Mosaico Multijogos",
+      "category": "Canais Premiere",
+      "logoPath": "logos/97b59729a6cfe674.png"
+    },
+    {
+      "id": "46_487",
+      "channelNumber": "240",
+      "name": "Combate",
+      "category": "Canais Premiere",
+      "logoPath": "logos/b7cdfbc91e622569.png"
+    },
+    {
+      "id": "46_548",
+      "channelNumber": "250",
+      "name": "Canal de Vendas NET",
+      "category": "Interativos",
+      "logoPath": "logos/97b59729a6cfe674.png"
+    },
+    {
+      "id": "46_1535",
+      "channelNumber": "251",
+      "name": "TV Climatempo",
+      "category": "Interativos",
+      "logoPath": "logos/9ba220f359e5affd.png"
+    },
+    {
+      "id": "46_1334",
+      "channelNumber": "253",
+      "name": "Jogos Interativos Cartoon",
+      "category": "Interativos",
+      "logoPath": "logos/d3550f80b8ec224b.png"
+    },
+    {
+      "id": "46_463",
+      "channelNumber": "281",
+      "name": "Playboy TV ",
+      "category": "Adultos",
+      "logoPath": "logos/d3dae94e7978110b.png"
+    },
+    {
+      "id": "46_798",
+      "channelNumber": "282",
+      "name": "Sextreme",
+      "category": "Adultos",
+      "logoPath": "logos/f320e9b5a2313175.png"
+    },
+    {
+      "id": "46_528",
+      "channelNumber": "284",
+      "name": "Venus",
+      "category": "Adultos",
+      "logoPath": "logos/94948430a5f4784f.png"
+    },
+    {
+      "id": "46_442",
+      "channelNumber": "285",
+      "name": "Sexy Hot",
+      "category": "Adultos",
+      "logoPath": "logos/ef4e730609376789.png"
+    },
+    {
+      "id": "46_2436",
+      "channelNumber": "300",
+      "name": "Música",
+      "category": "Canais de Música",
+      "logoPath": "logos/1999dec9b8e09856.png"
+    },
+    {
+      "id": "46_2447",
+      "channelNumber": "500",
+      "name": "CANAL DO CLIENTE HD",
+      "category": "Canal NET HD ",
+      "logoPath": "logos/97b59729a6cfe674.png"
+    },
+    {
+      "id": "46_2084",
+      "channelNumber": "502",
+      "name": "Record HD",
+      "category": "CANAIS ABERTOS HD OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/b51c7c76afa7c6e2.png"
+    },
+    {
+      "id": "46_2089",
+      "channelNumber": "504",
+      "name": "Rede TV HD",
+      "category": "CANAIS ABERTOS HD OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/960615463402636c.png"
+    },
+    {
+      "id": "46_2091",
+      "channelNumber": "505",
+      "name": "SBT HD",
+      "category": "CANAIS ABERTOS HD OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/43077a19f56abaed.png"
+    },
+    {
+      "id": "46_2204",
+      "channelNumber": "507",
+      "name": "TVE RS HD",
+      "category": "CANAIS ABERTOS HD OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/82b0c2158a96b8c3.png"
+    },
+    {
+      "id": "46_2066",
+      "channelNumber": "509",
+      "name": "Cultura HD",
+      "category": "CANAIS ABERTOS HD OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/734dde5c8401ae12.png"
+    },
+    {
+      "id": "46_2063",
+      "channelNumber": "510",
+      "name": "Band HD",
+      "category": "CANAIS ABERTOS HD OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/1ef0025d8860858c.png"
+    },
+    {
+      "id": "46_2142",
+      "channelNumber": "512",
+      "name": "Globo HD (RBS)",
+      "category": "CANAIS ABERTOS HD OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/8affa84ddb9318f1.png"
+    },
+    {
+      "id": "46_2388",
+      "channelNumber": "520",
+      "name": "Canal 20 POA (Espelho) ",
+      "category": "Cortesia ²",
+      "logoPath": "logos/97b59729a6cfe674.png"
+    },
+    {
+      "id": "46_2117",
+      "channelNumber": "520",
+      "name": "Bah! (Espelho)",
+      "category": "Canais Abertos Cortesia ²",
+      "logoPath": "logos/82b0c2158a96b8c3.png"
+    },
+    {
+      "id": "46_2362",
+      "channelNumber": "524",
+      "name": "RS Play Tv HD",
+      "category": "CORTESIA HD ²",
+      "logoPath": "logos/42f1b281620e3b63.png"
+    },
+    {
+      "id": "46_2435",
+      "channelNumber": "528",
+      "name": "Polishop TV",
+      "category": "Cortesia ²",
+      "logoPath": "logos/c3860ddb0c83daa3.png"
+    },
+    {
+      "id": "46_2434",
+      "channelNumber": "529",
+      "name": "Shoptime TV",
+      "category": "Cortesia ²",
+      "logoPath": "logos/8310e2b79034caf9.png"
+    },
+    {
+      "id": "46_2213",
+      "channelNumber": "530",
+      "name": "LIKE HD",
+      "category": "Variedades HD ",
+      "logoPath": "logos/3d231d3e64c477cd.png"
+    },
+    {
+      "id": "46_2181",
+      "channelNumber": "531",
+      "name": "TV Brasil HD",
+      "category": "CANAIS ABERTOS HD OBRIGATÓRIOS GRATUITOS ¹",
+      "logoPath": "logos/8ea97dceeb373bfa.png"
+    },
+    {
+      "id": "46_2158",
+      "channelNumber": "534",
+      "name": "Futura HD",
+      "category": "Documentários HD ",
+      "logoPath": "logos/e3eca05d79158042.png"
+    },
+    {
+      "id": "46_1020",
+      "channelNumber": "535",
+      "name": "Off HD ³",
+      "category": "Variedades HD ",
+      "logoPath": "logos/a462adc455abd195.png"
+    },
+    {
+      "id": "46_1137",
+      "channelNumber": "537",
+      "name": "SporTV 3 HD ³",
+      "category": "Esportes HD ",
+      "logoPath": "logos/a2ef9a32dc082abe.png"
+    },
+    {
+      "id": "46_1047",
+      "channelNumber": "538",
+      "name": "SporTV 2 HD ³",
+      "category": "Esportes HD ",
+      "logoPath": "logos/ce9a028cdcee1195.png"
+    },
+    {
+      "id": "46_1063",
+      "channelNumber": "539",
+      "name": "SporTV HD ³",
+      "category": "Esportes HD ",
+      "logoPath": "logos/bf6f4ad7ed0d648a.png"
+    },
+    {
+      "id": "46_1066",
+      "channelNumber": "540",
+      "name": "GloboNews HD ³",
+      "category": "Notícias HD ",
+      "logoPath": "logos/0f0c989c6cbe24f7.png"
+    },
+    {
+      "id": "46_1051",
+      "channelNumber": "541",
+      "name": "GNT HD ³",
+      "category": "Variedades HD ",
+      "logoPath": "logos/eea6b9118dda9ac8.png"
+    },
+    {
+      "id": "46_1062",
+      "channelNumber": "542",
+      "name": "Multishow HD ³",
+      "category": "Entretenimento/Música HD ",
+      "logoPath": "logos/1108c494a8ec27e1.png"
+    },
+    {
+      "id": "46_1111",
+      "channelNumber": "543",
+      "name": "Viva HD",
+      "category": "Variedades HD ",
+      "logoPath": "logos/d8f17d278e4a429c.png"
+    },
+    {
+      "id": "46_533",
+      "channelNumber": "544",
+      "name": "Modo viagem HD",
+      "category": "Variedades HD ",
+      "logoPath": "logos/4d8edde33a7f1a0d.png"
+    },
+    {
+      "id": "46_927",
+      "channelNumber": "550",
+      "name": "E! HD",
+      "category": "Variedades HD ",
+      "logoPath": "logos/a9bcbdf523bfca02.png"
+    },
+    {
+      "id": "46_2259",
+      "channelNumber": "551",
+      "name": "Fashion TV HD",
+      "category": "CORTESIA HD ²",
+      "logoPath": "logos/82b0c2158a96b8c3.png"
+    },
+    {
+      "id": "46_890",
+      "channelNumber": "552",
+      "name": "TLC HD ³",
+      "category": "Variedades HD ",
+      "logoPath": "logos/0bf40c36a3ffc5e2.png"
+    },
+    {
+      "id": "46_2060",
+      "channelNumber": "553",
+      "name": "Arte 1 HD",
+      "category": "Variedades HD ",
+      "logoPath": "logos/b222290dc0feb215.png"
+    },
+    {
+      "id": "46_935",
+      "channelNumber": "554",
+      "name": "FOOD NETWORK HD",
+      "category": "Variedades HD ",
+      "logoPath": "logos/e4531c9d6693cbe2.png"
+    },
+    {
+      "id": "46_1061",
+      "channelNumber": "555",
+      "name": "Discovery Home & Health HD ³",
+      "category": "Variedades HD ",
+      "logoPath": "logos/cdd4976728a75aae.png"
+    },
+    {
+      "id": "46_2145",
+      "channelNumber": "556",
+      "name": "Curta! HD",
+      "category": "Variedades HD ",
+      "logoPath": "logos/c130da5ab995a8c0.png"
+    },
+    {
+      "id": "46_2261",
+      "channelNumber": "557",
+      "name": "Travel Box Brasil HD ",
+      "category": "CORTESIA HD ²",
+      "logoPath": "logos/d39b0fec319729ae.png"
+    },
+    {
+      "id": "46_2245",
+      "channelNumber": "558",
+      "name": "FISH TV HD",
+      "category": "CORTESIA HD ²",
+      "logoPath": "logos/bd297e7ec71f8c26.png"
+    },
+    {
+      "id": "46_2289",
+      "channelNumber": "559",
+      "name": "DogTV HD",
+      "category": "Variedades HD ",
+      "logoPath": "logos/8318f12d8d544f4c.png"
+    },
+    {
+      "id": "46_2312",
+      "channelNumber": "560",
+      "name": "HGTV HD",
+      "category": "Variedades HD ",
+      "logoPath": "logos/92411c61cedc05ac.png"
+    },
+    {
+      "id": "46_2433",
+      "channelNumber": "561",
+      "name": "Sabor & Arte HD",
+      "category": "Variedades HD ",
+      "logoPath": "logos/d4984e4655192226.png"
+    },
+    {
+      "id": "46_2178",
+      "channelNumber": "565",
+      "name": "Woohoo HD",
+      "category": "Variedades HD ",
+      "logoPath": "logos/36321278de1fd8bd.png"
+    },
+    {
+      "id": "46_2239",
+      "channelNumber": "569",
+      "name": "ESPN 5 HD",
+      "category": "CORTESIA HD ²",
+      "logoPath": "logos/6ca4fe7d28b487f7.png"
+    },
+    {
+      "id": "46_1049",
+      "channelNumber": "570",
+      "name": "ESPN HD ³",
+      "category": "Esportes HD ",
+      "logoPath": "logos/5ea0bf20e7746eca.png"
+    },
+    {
+      "id": "46_2432",
+      "channelNumber": "571",
+      "name": "ESPN 2 HD ",
+      "category": "Esportes HD ",
+      "logoPath": "logos/e7ede1d1c8e26cd5.png"
+    },
+    {
+      "id": "46_2251",
+      "channelNumber": "572",
+      "name": "ESPN 3 HD",
+      "category": "Esportes HD ",
+      "logoPath": "logos/5b9104314c499957.png"
+    },
+    {
+      "id": "46_1035",
+      "channelNumber": "573",
+      "name": "ESPN 4 HD",
+      "category": "Esportes HD ",
+      "logoPath": "logos/4a767c2af47ba252.png"
+    },
+    {
+      "id": "46_1091",
+      "channelNumber": "574",
+      "name": "ESPN 6 HD",
+      "category": "Esportes HD ",
+      "logoPath": "logos/db4a327cd4de43b6.png"
+    },
+    {
+      "id": "46_1095",
+      "channelNumber": "575",
+      "name": "Band Sports HD ³",
+      "category": "Esportes HD ",
+      "logoPath": "logos/a3e3934f4ac49d9e.png"
+    },
+    {
+      "id": "46_2430",
+      "channelNumber": "576",
+      "name": "JP News HD",
+      "category": "CORTESIA HD ²",
+      "logoPath": "logos/c244ad44203763d5.png"
+    },
+    {
+      "id": "46_2351",
+      "channelNumber": "577",
+      "name": "CNN Brasil HD",
+      "category": "Notícias HD ",
+      "logoPath": "logos/dd70097a61464724.png"
+    },
+    {
+      "id": "46_953",
+      "channelNumber": "579",
+      "name": "Band News HD",
+      "category": "Notícias HD ",
+      "logoPath": "logos/9ba08054834327be.png"
+    },
+    {
+      "id": "46_1353",
+      "channelNumber": "580",
+      "name": "National Geographic HD ³",
+      "category": "Documentários HD ",
+      "logoPath": "logos/3a0e1f12499a8fd0.png"
+    },
+    {
+      "id": "46_1060",
+      "channelNumber": "581",
+      "name": "Discovery HD ³",
+      "category": "Documentários",
+      "logoPath": "logos/79bb201fee9517fb.png"
+    },
+    {
+      "id": "46_928",
+      "channelNumber": "582",
+      "name": "Animal Planet HD",
+      "category": "Documentários HD ",
+      "logoPath": "logos/07aec08750924949.png"
+    },
+    {
+      "id": "46_2363",
+      "channelNumber": "583",
+      "name": "History Hd",
+      "category": "Documentários HD ",
+      "logoPath": "logos/788e046f810f094d.png"
+    },
+    {
+      "id": "46_1133",
+      "channelNumber": "584",
+      "name": "Discovery Turbo HD ³",
+      "category": "Documentários HD ",
+      "logoPath": "logos/a06337290a0c194e.png"
+    },
+    {
+      "id": "46_2150",
+      "channelNumber": "585",
+      "name": "Discovery Science HD ³",
+      "category": "Documentários HD ",
+      "logoPath": "logos/bb31abdd3d8d4540.png"
+    },
+    {
+      "id": "46_877",
+      "channelNumber": "592",
+      "name": "Discovery Theater HD ³",
+      "category": "Documentários",
+      "logoPath": "logos/82b0c2158a96b8c3.png"
+    },
+    {
+      "id": "46_1144",
+      "channelNumber": "593",
+      "name": "Discovery world HD ³",
+      "category": "Documentários HD ",
+      "logoPath": "logos/5347e9d761c6c63d.png"
+    },
+    {
+      "id": "46_1011",
+      "channelNumber": "594",
+      "name": "History 2 HD",
+      "category": "Documentários HD ",
+      "logoPath": "logos/8f52771fe77892bf.png"
+    },
+    {
+      "id": "46_2418",
+      "channelNumber": "599",
+      "name": "Gloobinho HD",
+      "category": "Infantis HD ",
+      "logoPath": "logos/72d206f7f0c648c5.png"
+    },
+    {
+      "id": "46_1079",
+      "channelNumber": "600",
+      "name": "Discovery Kids HD ³",
+      "category": "Infantis HD ",
+      "logoPath": "logos/21d39b50018dc897.png"
+    },
+    {
+      "id": "46_1043",
+      "channelNumber": "601",
+      "name": "Gloob HD ³",
+      "category": "Infantis HD ",
+      "logoPath": "logos/2c7bdc29c16013f9.png"
+    },
+    {
+      "id": "46_1036",
+      "channelNumber": "602",
+      "name": "Disney Channel HD ³",
+      "category": "Infantis HD ",
+      "logoPath": "logos/e85ac34cde1ab461.png"
+    },
+    {
+      "id": "46_1611",
+      "channelNumber": "603",
+      "name": "Nickelodeon HD",
+      "category": "Infantis HD ",
+      "logoPath": "logos/1dd7c90098346308.png"
+    },
+    {
+      "id": "46_2446",
+      "channelNumber": "604",
+      "name": "Cartoon Network HD",
+      "category": "Infantis HD ",
+      "logoPath": "logos/c7bf444ace1cf5eb.png"
+    },
+    {
+      "id": "46_2135",
+      "channelNumber": "607",
+      "name": "Nick Jr HD ³",
+      "category": "Infantis HD ",
+      "logoPath": "logos/80b2245c623e8656.png"
+    },
+    {
+      "id": "46_2147",
+      "channelNumber": "608",
+      "name": "Cartoonito HD",
+      "category": "Infantis HD ",
+      "logoPath": "logos/e4ef583ca9f593ff.png"
+    },
+    {
+      "id": "46_2148",
+      "channelNumber": "609",
+      "name": "TV Rá Tim Bum HD ³",
+      "category": "Infantis HD ",
+      "logoPath": "logos/dede6ae1cfa68c7b.png"
+    },
+    {
+      "id": "46_2166",
+      "channelNumber": "613",
+      "name": "ZooMoo HD",
+      "category": "Infantis HD ",
+      "logoPath": "logos/fa6c31e1c1c51cb2.png"
+    },
+    {
+      "id": "46_863",
+      "channelNumber": "620",
+      "name": "BIS HD ³",
+      "category": "Entretenimento/Música HD ",
+      "logoPath": "logos/b4fa2163986f518b.png"
+    },
+    {
+      "id": "46_574",
+      "channelNumber": "621",
+      "name": "MTV HD ³",
+      "category": "Entretenimento/Música HD ",
+      "logoPath": "logos/f5aae9295fa02114.png"
+    },
+    {
+      "id": "46_1615",
+      "channelNumber": "623",
+      "name": "Music Box Brazil HD ³",
+      "category": "Entretenimento/Música HD ",
+      "logoPath": "logos/a8748109279f45e9.png"
+    },
+    {
+      "id": "46_2366",
+      "channelNumber": "624",
+      "name": "Trace Brazuca HD",
+      "category": "CORTESIA HD ²",
+      "logoPath": "logos/82b0c2158a96b8c3.png"
+    },
+    {
+      "id": "46_2242",
+      "channelNumber": "628",
+      "name": "MTV Live HD",
+      "category": "Entretenimento/Música HD ",
+      "logoPath": "logos/919d4b57b3b961a3.png"
+    },
+    {
+      "id": "46_2243",
+      "channelNumber": "630",
+      "name": " Universal TV HD",
+      "category": "Séries HD ",
+      "logoPath": "logos/c2317ed53755130e.png"
+    },
+    {
+      "id": "46_2429",
+      "channelNumber": "631",
+      "name": "STAR CHANNEL HD",
+      "category": "Séries HD ",
+      "logoPath": "logos/fd8c5cf3b605b5b0.png"
+    },
+    {
+      "id": "46_2445",
+      "channelNumber": "632",
+      "name": "Warner Channel HD",
+      "category": "Séries HD ",
+      "logoPath": "logos/7a15163ea30bddcd.png"
+    },
+    {
+      "id": "46_1008",
+      "channelNumber": "633",
+      "name": "Sony HD ³",
+      "category": "Séries HD ",
+      "logoPath": "logos/ec6982adf650b24e.png"
+    },
+    {
+      "id": "46_1104",
+      "channelNumber": "634",
+      "name": "FX HD ³",
+      "category": "Séries HD ",
+      "logoPath": "logos/36c872b365d463fd.png"
+    },
+    {
+      "id": "46_1017",
+      "channelNumber": "635",
+      "name": "AXN HD ³",
+      "category": "Séries HD ",
+      "logoPath": "logos/093380e2ab6b3fa9.png"
+    },
+    {
+      "id": "46_1616",
+      "channelNumber": "636",
+      "name": "Tnt novelas HD",
+      "category": "Séries HD ",
+      "logoPath": "logos/849eaf9933fc106e.png"
+    },
+    {
+      "id": "46_2136",
+      "channelNumber": "637",
+      "name": "Comedy Central HD",
+      "category": "Séries HD ",
+      "logoPath": "logos/17c8975cfd2e6198.png"
+    },
+    {
+      "id": "46_1197",
+      "channelNumber": "638",
+      "name": "A&E HD",
+      "category": "Séries HD ",
+      "logoPath": "logos/5da7e7a9168779f7.png"
+    },
+    {
+      "id": "46_1059",
+      "channelNumber": "639",
+      "name": "ID HD ³",
+      "category": "Séries HD ",
+      "logoPath": "logos/e50033b4f2c00341.png"
+    },
+    {
+      "id": "46_2061",
+      "channelNumber": "640",
+      "name": "Syfy HD",
+      "category": "Séries HD ",
+      "logoPath": "logos/3b41faf067559936.png"
+    },
+    {
+      "id": "46_931",
+      "channelNumber": "641",
+      "name": "Lifetime HD",
+      "category": "Séries HD ",
+      "logoPath": "logos/495cd6c34dede438.png"
+    },
+    {
+      "id": "46_1203",
+      "channelNumber": "643",
+      "name": "TNT SÉRIES HD",
+      "category": "Séries HD ",
+      "logoPath": "logos/3024d96baf6bdd3a.png"
+    },
+    {
+      "id": "46_950",
+      "channelNumber": "644",
+      "name": "Cinecanal HD",
+      "category": "Variedades HD ",
+      "logoPath": "logos/45f2245871964e3a.png"
+    },
+    {
+      "id": "46_1619",
+      "channelNumber": "645",
+      "name": "AMC HD",
+      "category": "Filmes HD ",
+      "logoPath": "logos/c23f63f2f47bbd12.png"
+    },
+    {
+      "id": "46_2309",
+      "channelNumber": "647",
+      "name": "Eurochannel HD",
+      "category": "CORTESIA HD ²",
+      "logoPath": "logos/015d94a55da9b8b2.png"
+    },
+    {
+      "id": "46_2224",
+      "channelNumber": "648",
+      "name": "Film&Arts HD",
+      "category": "Variedades HD ",
+      "logoPath": "logos/e31cccd6941cbea9.png"
+    },
+    {
+      "id": "46_1131",
+      "channelNumber": "650",
+      "name": "Canal Brasil HD ³",
+      "category": "Filmes HD ",
+      "logoPath": "logos/28a667c89c8ffa36.png"
+    },
+    {
+      "id": "46_875",
+      "channelNumber": "651",
+      "name": "TNT HD ³",
+      "category": "Filmes HD ",
+      "logoPath": "logos/b732dc3884815c12.png"
+    },
+    {
+      "id": "46_878",
+      "channelNumber": "652",
+      "name": "Megapix HD ³",
+      "category": "Filmes HD ",
+      "logoPath": "logos/30351b37cb24ba8a.png"
+    },
+    {
+      "id": "46_876",
+      "channelNumber": "654",
+      "name": "Space HD ³",
+      "category": "Filmes HD ",
+      "logoPath": "logos/7275372d0d4c5e7a.png"
+    },
+    {
+      "id": "46_1098",
+      "channelNumber": "655",
+      "name": "Cinemax HD ³",
+      "category": "Filmes HD ",
+      "logoPath": "logos/9fff92352df28277.png"
+    },
+    {
+      "id": "46_1641",
+      "channelNumber": "656",
+      "name": "Prime Box Brazil HD ³",
+      "category": "Filmes HD ",
+      "logoPath": "logos/3a488215db30b366.png"
+    },
+    {
+      "id": "46_2062",
+      "channelNumber": "657",
+      "name": "Studio Universal HD",
+      "category": "Filmes HD ",
+      "logoPath": "logos/b9f5554e6f13b34b.png"
+    },
+    {
+      "id": "46_2424",
+      "channelNumber": "658",
+      "name": "Paramount Network HD ",
+      "category": "Filmes HD ",
+      "logoPath": "logos/0ea3f068f54373a9.png"
+    },
+    {
+      "id": "46_838",
+      "channelNumber": "661",
+      "name": "Telecine Premium HD ³",
+      "category": "Canais Telecine HD ",
+      "logoPath": "logos/b26f1e21bf3dcd9d.png"
+    },
+    {
+      "id": "46_898",
+      "channelNumber": "662",
+      "name": "Telecine Action HD ³",
+      "category": "Canais Telecine HD ",
+      "logoPath": "logos/ee8e841c36589df6.png"
+    },
+    {
+      "id": "46_1019",
+      "channelNumber": "663",
+      "name": "Telecine Touch HD ³",
+      "category": "Canais Telecine HD ",
+      "logoPath": "logos/ee8e841c36589df6.png"
+    },
+    {
+      "id": "46_1018",
+      "channelNumber": "664",
+      "name": "Telecine Fun HD ³",
+      "category": "Canais Telecine HD ",
+      "logoPath": "logos/c3f6408e80523ec6.png"
+    },
+    {
+      "id": "46_871",
+      "channelNumber": "665",
+      "name": "Telecine Pipoca HD ³",
+      "category": "Canais Telecine HD ",
+      "logoPath": "logos/5314c0df39eebc36.png"
+    },
+    {
+      "id": "46_1100",
+      "channelNumber": "666",
+      "name": "Telecine Cult HD ³",
+      "category": "Canais Telecine HD ",
+      "logoPath": "logos/b50ff514432d8b34.png"
+    },
+    {
+      "id": "46_856",
+      "channelNumber": "671",
+      "name": "HBO HD ³",
+      "category": "Canais HBO",
+      "logoPath": "logos/a8b6be48fd4ece59.png"
+    },
+    {
+      "id": "46_1330",
+      "channelNumber": "672",
+      "name": "HBO HD 2 ³",
+      "category": "Canais HBO",
+      "logoPath": "logos/ee54acf3b29de63f.png"
+    },
+    {
+      "id": "46_2332",
+      "channelNumber": "673",
+      "name": "HBO + HD",
+      "category": "Canais HBO HD ",
+      "logoPath": "logos/2b064b637fb84124.png"
+    },
+    {
+      "id": "46_1099",
+      "channelNumber": "675",
+      "name": "HBO Family HD ³",
+      "category": "Canais HBO HD ",
+      "logoPath": "logos/d9a6f5603a190515.png"
+    },
+    {
+      "id": "46_1086",
+      "channelNumber": "676",
+      "name": "HBO Signature HD ³",
+      "category": "Canais HBO HD ",
+      "logoPath": "logos/dafbb54eb5fe1490.png"
+    },
+    {
+      "id": "46_2368",
+      "channelNumber": "677",
+      "name": "HBO POP HD",
+      "category": "Canais HBO HD ",
+      "logoPath": "logos/8cc5eb2e1386e491.png"
+    },
+    {
+      "id": "46_2354",
+      "channelNumber": "678",
+      "name": "HBO MUNDI HD",
+      "category": "Canais HBO HD ",
+      "logoPath": "logos/1973e50d1d8ff059.png"
+    },
+    {
+      "id": "46_2352",
+      "channelNumber": "679",
+      "name": "HBO Xtreme HD",
+      "category": "Canais HBO HD ",
+      "logoPath": "logos/0ceee6a99cd91adc.png"
+    },
+    {
+      "id": "46_2359",
+      "channelNumber": "689",
+      "name": "Agro Mais HD ",
+      "category": "Notícias HD ",
+      "logoPath": "logos/39c62addef10caee.png"
+    },
+    {
+      "id": "46_1656",
+      "channelNumber": "693",
+      "name": "Rede Vida HD",
+      "category": "Canais Abertos HD Cortesia ²",
+      "logoPath": "logos/de98c95438aabe0e.png"
+    },
+    {
+      "id": "46_2370",
+      "channelNumber": "695",
+      "name": " TV Aparecida (espelho)",
+      "category": "Cortesia ²",
+      "logoPath": "logos/01bcfb5633a1e678.png"
+    },
+    {
+      "id": "46_2431",
+      "channelNumber": "695",
+      "name": "Canal do Boi HD",
+      "category": "CORTESIA HD ²",
+      "logoPath": "logos/6ad437512168caa1.png"
+    },
+    {
+      "id": "46_2437",
+      "channelNumber": "710",
+      "name": "France 24 HD",
+      "category": "Notícias HD ",
+      "logoPath": "logos/22aed801eb890555.png"
+    },
+    {
+      "id": "46_2382",
+      "channelNumber": "714",
+      "name": "CONMEBOL TV 4 HD",
+      "category": "CORTESIA HD ²",
+      "logoPath": "logos/81493b3200fe620e.png"
+    },
+    {
+      "id": "46_1366",
+      "channelNumber": "721",
+      "name": "Premiere Clubes HD",
+      "category": "Canais Premiere HD ",
+      "logoPath": "logos/31d3ef459588b48a.png"
+    },
+    {
+      "id": "46_1064",
+      "channelNumber": "722",
+      "name": "Premiere HD 2",
+      "category": "Canais Premiere HD ",
+      "logoPath": "logos/181b0a7373cc3180.png"
+    },
+    {
+      "id": "46_1165",
+      "channelNumber": "723",
+      "name": "PREMIERE HD 3 ³",
+      "category": "Canais Premiere HD ",
+      "logoPath": "logos/31d3ef459588b48a.png"
+    },
+    {
+      "id": "46_1166",
+      "channelNumber": "724",
+      "name": "PREMIERE HD 4 ³",
+      "category": "Canais Premiere HD ",
+      "logoPath": "logos/181b0a7373cc3180.png"
+    },
+    {
+      "id": "46_1167",
+      "channelNumber": "725",
+      "name": "PREMIERE HD 5 ³",
+      "category": "Canais Premiere HD ",
+      "logoPath": "logos/181b0a7373cc3180.png"
+    },
+    {
+      "id": "46_2121",
+      "channelNumber": "726",
+      "name": "Premiere HD 6",
+      "category": "Canais Premiere HD ",
+      "logoPath": "logos/181b0a7373cc3180.png"
+    },
+    {
+      "id": "46_2157",
+      "channelNumber": "727",
+      "name": "Premiere HD 7",
+      "category": "Canais Premiere HD ",
+      "logoPath": "logos/181b0a7373cc3180.png"
+    },
+    {
+      "id": "46_1027",
+      "channelNumber": "740",
+      "name": "Combate HD",
+      "category": "Canais Premiere HD ",
+      "logoPath": "logos/b7cdfbc91e622569.png"
+    },
+    {
+      "id": "46_2288",
+      "channelNumber": "781",
+      "name": "Playboy HD",
+      "category": "Adultos",
+      "logoPath": "logos/f85a755d7ae2d143.png"
+    }
+  ]
+}
