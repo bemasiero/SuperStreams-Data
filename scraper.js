@@ -1229,8 +1229,17 @@ async function run() {
                     let homeTeam = homeCompetitor?.team?.displayName || '';
                     let awayTeam = awayCompetitor?.team?.displayName || '';
 
-                    let homeLogo = homeCompetitor?.team?.logo || leagueLogo;
-                    let awayLogo = awayCompetitor?.team?.logo || '';
+                    // A club ESPN has no crest for can come back with the competition's
+                    // logo as its own; treat that as "no logo" so the app shows the
+                    // club's initials instead of the same league mark next to a crest.
+                    const teamLogo = (c) => {
+                        const l = c?.team?.logo || '';
+                        return l.includes('/leaguelogos/') ? '' : l;
+                    };
+                    // The league logo only stands in when there are no teams at all
+                    // (single-competitor events), never for a named team.
+                    let homeLogo = teamLogo(homeCompetitor) || ((homeTeam || awayTeam) ? '' : leagueLogo);
+                    let awayLogo = teamLogo(awayCompetitor);
 
                     let homeColor = homeCompetitor?.team?.color || '';
                     let awayColor = awayCompetitor?.team?.color || '';
