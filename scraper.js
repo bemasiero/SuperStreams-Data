@@ -1000,6 +1000,64 @@ const LEAGUES = [
 // captures only yesterday's finished slate for daily sports like MLB/WNBA. Always
 // fetch an explicit yesterday→+2days window too, and merge both responses so
 // next-event context (NFL week, next F1 race, UFC card) is preserved.
+// ── Extra context for the app's event descriptions ─────────────────────────
+// Everything below is optional and only added when ESPN has it. The app builds
+// its "about this event" text from these (venue, stage, records…), so a missing
+// field just means a shorter description.
+function clean(value) {
+    return typeof value === 'string' && value.trim() ? value.trim() : undefined;
+}
+
+// "Hill Dickinson Stadium" / "Liverpool"
+function venueMeta(venue) {
+    return {
+        venue: clean(venue?.fullName),
+        city: clean(venue?.address?.city)
+    };
+}
+
+// A side's overall record as ESPN prints it ("3-4-2": soccer W-D-L, NHL W-L-OTL,
+// NBA/NFL/MLB W-L) and, for soccer, its last results ("WWLDL").
+function sideMeta(competitor) {
+    const records = competitor?.records || [];
+    const total = records.find(r => r.type === 'total') || records[0];
+    return {
+        record: clean(total?.summary) || clean(competitor?.record),
+        form: clean(competitor?.form)
+    };
+}
+
+// ESPN's own wording for what stage this is ("Round of 16", "World Series - Game 5",
+// "League Phase"). Raw English; the app maps the phrases it knows.
+function stageNote(competition) {
+    const headline = (competition.notes || []).map(n => clean(n.headline)).find(Boolean);
+    if (headline) return headline;
+    const alt = clean(competition.altGameNote);
+    if (!alt) return undefined;
+    // "UEFA Champions League, League Phase" → "League Phase"
+    const comma = alt.indexOf(', ');
+    // No comma means ESPN only repeated the competition's name, which isn't a stage.
+    return comma >= 0 ? alt.slice(comma + 2) : undefined;
+}
+
+function eventMeta(ev, competition) {
+    const home = competition.competitors?.find(c => c.homeAway === 'home');
+    const away = competition.competitors?.find(c => c.homeAway === 'away');
+    const slug = ev.season?.slug;
+    return {
+        ...venueMeta(competition.venue || ev.venue),
+        note: stageNote(competition),
+        seriesSummary: clean(competition.series?.summary),
+        week: typeof ev.week?.number === 'number' ? ev.week.number : undefined,
+        phase: slug === 'post-season' ? 'postseason' : slug === 'preseason' ? 'preseason' : undefined,
+        neutralSite: competition.neutralSite === true ? true : undefined,
+        homeRecord: sideMeta(home).record,
+        awayRecord: sideMeta(away).record,
+        homeForm: sideMeta(home).form,
+        awayForm: sideMeta(away).form
+    };
+}
+
 function todayWindow() {
     const fmt = (d) => d.toISOString().slice(0, 10).replace(/-/g, '');
     const start = new Date(Date.now() - 1 * 86400000);
@@ -1117,7 +1175,12 @@ async function run() {
                                 startTime: comp.date,
                                 status: comp.status?.type?.description || 'Scheduled',
                                 homeAthletes: homeAthletes,
-                                awayAthletes: awayAthletes
+                                awayAthletes: awayAthletes,
+                                // ESPN gives a tournament's place as "Paris, France" (no stadium);
+                                // the city is enough for the app's text.
+                                city: clean((comp.venue?.fullName || ev.venue?.displayName || '').split(',')[0]),
+                                note: clean(comp.round?.displayName),
+                                major: ev.major === true ? true : undefined
                             };
                         }
                     }
@@ -1157,7 +1220,9 @@ async function run() {
                             homeColor: '',
                             awayColor: '',
                             startTime: comp.date,
-                            status: comp.status?.type?.description || 'Scheduled'
+                            status: comp.status?.type?.description || 'Scheduled',
+                            venue: clean(ev.circuit?.fullName),
+                            city: clean(ev.circuit?.address?.city)
                         };
                     }
                 }
@@ -1267,7 +1332,8 @@ async function run() {
                         homeColor: homeColor,
                         awayColor: awayColor,
                         startTime: ev.date,
-                        status: ev.status.type.description
+                        status: ev.status.type.description,
+                        ...eventMeta(ev, competition)
                     };
                 }
             }
