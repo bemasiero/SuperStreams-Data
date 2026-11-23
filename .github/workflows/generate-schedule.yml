@@ -2,7 +2,9 @@ name: Generate Global Schedule
 
 on:
   schedule:
-    - cron: '0 */4 * * *' # Run every 4 hours
+    # Off the hour: GitHub delays and drops a lot of scheduled runs at :00
+    # (in 2026-11 only 2-4 of the 6 daily runs actually happened).
+    - cron: '23 */4 * * *' # Run every 4 hours
   workflow_dispatch: # Allow manual trigger
 
 permissions:

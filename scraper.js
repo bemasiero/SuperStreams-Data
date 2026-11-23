@@ -1058,17 +1058,53 @@ function eventMeta(ev, competition) {
     };
 }
 
-function todayWindow() {
+// The days around now that every league is asked for: yesterday → +2 days.
+function windowDays() {
     const fmt = (d) => d.toISOString().slice(0, 10).replace(/-/g, '');
-    const start = new Date(Date.now() - 1 * 86400000);
-    const end = new Date(Date.now() + 2 * 86400000);
-    return `${fmt(start)}-${fmt(end)}`;
+    return [-1, 0, 1, 2].map(offset => fmt(new Date(Date.now() + offset * 86400000)));
+}
+
+// ESPN takes one day per request: since 2026-11 a range ("20261122-20261125")
+// answers 400 "Failed to get events endpoint." for every team sport, and
+// startDate/endDate are ignored. A failed day is logged and skipped.
+async function fetchDays(baseUrl, days) {
+    const results = await Promise.allSettled(days.map(day => fetch(`${baseUrl}?dates=${day}`)));
+    results.forEach((r, i) => {
+        if (r.status === 'rejected') console.error(`⚠️ ${days[i]} failed:`, r.reason.message);
+    });
+    return results.filter(r => r.status === 'fulfilled').flatMap(r => r.value.events || []);
+}
+
+// Every soccer match ESPN has on those days, from soccer/all (one request a day
+// instead of one per league per day), grouped by ESPN's numeric league id: an
+// event's uid reads "s:600~l:700~e:…", and 700 is eng.1's leagues[0].id. Leagues
+// not in LEAGUES are left out. Null when every day failed, so each league then
+// asks for its own days.
+async function fetchSoccerByLeague(days) {
+    const results = await Promise.allSettled(days.map(day =>
+        fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/all/scoreboard?dates=${day}&limit=1000`)));
+    if (results.every(r => r.status === 'rejected')) {
+        console.error('⚠️ soccer/all failed; asking each league for its days instead');
+        return null;
+    }
+    const byLeague = new Map();
+    for (const [i, r] of results.entries()) {
+        if (r.status === 'rejected') { console.error(`⚠️ soccer/all ${days[i]} failed:`, r.reason.message); continue; }
+        for (const ev of r.value.events || []) {
+            const id = /~l:(\d+)~/.exec(ev.uid || '')?.[1];
+            if (!id) continue;
+            if (!byLeague.has(id)) byLeague.set(id, []);
+            byLeague.get(id).push(ev);
+        }
+    }
+    return byLeague;
 }
 
 async function run() {
     console.log("🚀 Starting Global Schedule Scraper...");
     let allEventsMap = {};
-    const dateRange = todayWindow();
+    const days = windowDays();
+    const soccerByLeague = await fetchSoccerByLeague(days);
 
     for (const {sport, league} of LEAGUES) {
         const baseUrl = `https://site.api.espn.com/apis/site/v2/sports/${sport}/${league}/scoreboard`;
@@ -1077,15 +1113,15 @@ async function run() {
         try {
             const data = await fetch(baseUrl);
 
-            // Duplicate events across the two responses are fine: allEventsMap
+            // Duplicate events across the responses are fine: allEventsMap
             // keys by event/competition id, and tennis tournaments carry different
             // match lists in each response, so both copies must be parsed.
             let events = data.events || [];
-            try {
-                const datedData = await fetch(`${baseUrl}?dates=${dateRange}`);
-                events = events.concat(datedData.events || []);
-            } catch (error) {
-                console.error(`⚠️ Dated fetch failed for ${league}:`, error.message);
+            const leagueId = data.leagues?.[0]?.id;
+            if (sport === 'soccer' && soccerByLeague && leagueId) {
+                events = events.concat(soccerByLeague.get(String(leagueId)) || []);
+            } else {
+                events = events.concat(await fetchDays(baseUrl, days));
             }
             console.log(`📅 Found ${events.length} events.`);
 
